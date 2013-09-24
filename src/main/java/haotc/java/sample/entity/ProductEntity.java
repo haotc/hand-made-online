@@ -17,6 +17,7 @@ public class ProductEntity {
     private int total;
     private int quantity;
     private int categoryId;
+    private int numberOfSold;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -126,5 +127,14 @@ public class ProductEntity {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    @Column(name = "number_of_sold")
+    public int getNumberOfSold() {
+        return numberOfSold;
+    }
+
+    public void setNumberOfSold(int numberOfSold) {
+        this.numberOfSold = numberOfSold;
     }
 }

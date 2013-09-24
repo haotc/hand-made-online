@@ -2,7 +2,7 @@
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Open Sans'), local('OpenSans'), url("cJZKeOuBrn4kERxqtaUH3T8E0i7KZn-EPnyo3HZu7kw.woff") format('woff');
+    src: local('Open Sans'), local('OpenSans'), url("open-sans.woff") format('woff');
 }
 
 body {
@@ -37,6 +37,7 @@ body >.wrapper {
 body >.wrapper .navigator {
     position: fixed;
     width: 238px;
+    min-height: 1500px;
     height: 100%;
     z-index: 100;
 }
@@ -195,7 +196,8 @@ body >.wrapper .navigator .navigator-wrapper ::-webkit-scrollbar-thumb {
 body >.wrapper .content {
     margin-left: 241px;
     width: 960px;
-    min-height: 100%;
+    min-height: 1500px;
+    height: 100%;
     position: relative;
     display: inline-block;
     background-color: #fff;
@@ -246,7 +248,7 @@ body >.wrapper .content .main-area {
 }
 
 body >.wrapper .content .main-area .feature {
-    color: #b8b8b8;
+    color: #FF5E9E;
     background-color: #f8f8f8;
     border-top: 5px solid #0f0;
     border-bottom: 5px solid rgb(255, 194, 0);
@@ -308,7 +310,7 @@ body >.wrapper .content .main-area .item .container .title {
 }
 
 body >.wrapper .content .main-area .item .container .comment {
-    top: 174px;
+    top: 180px;
     width: 211px;
     position: absolute;
     left: 19px;
@@ -535,6 +537,10 @@ a {
 
 #logout-label {
     margin-top: 5px;
+}
+
+#product-popup {
+    width: 980px;
 }
 
 .undisplayed {

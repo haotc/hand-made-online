@@ -13,13 +13,13 @@
 <head>
     <title>Handmade Online</title>
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
+    <link rel="stylesheet" href="../assets/stylesheets/product-details.css">
     <%--<link rel="stylesheet" href="../assets/stylesheets/metro-bootstrap.css">--%>
     <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.hoverIntent.minified.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.leanModal.min.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.validate.js"></script>
     <script type="text/javascript" src="../assets/javascripts/navigation.js"></script>
-    <script type="text/javascript" src="../assets/javascripts/main.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -93,10 +93,21 @@
         </div>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Featured</div>
+                <div class="feature-text">Thông tin sản phẩm</div>
+                <button id="buy-button"><a href="cart?id=${product.id}">Thêm vào giỏ hàng »</a></button>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
+                <div id="image-area">
+                    <img src="${product.imageUrl}"/>
+                </div>
+                <div id="info-area">
+                    <h1>${product.name}</h1>
+
+                    <h2>${product.unitPrice} Đ</h2>
+
+                    <p class="desc-area">${product.detailDesc}</p>
+                </div>
             </div>
         </div>
     </div>

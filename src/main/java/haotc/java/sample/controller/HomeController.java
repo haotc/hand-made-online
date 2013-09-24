@@ -1,10 +1,10 @@
 package haotc.java.sample.controller;
 
-import haotc.java.sample.CustomerRegisterForm;
 import haotc.java.sample.bo.CustomerLoginBo;
 import haotc.java.sample.bo.CustomerRegisterBo;
 import haotc.java.sample.bo.ProductBo;
 import haotc.java.sample.entity.ProductEntity;
+import haotc.java.sample.form.CustomerRegisterForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -37,8 +37,8 @@ public class HomeController {
     public String initProduct(ModelMap model, HttpServletRequest request) {
         CustomerRegisterForm registerUser = new CustomerRegisterForm();
         model.addAttribute("registerUser", registerUser);
-        model.addAttribute("loginUser", loginUser);
-        String username = (String) request.getSession().getAttribute("loginUser");
+//        model.addAttribute("loginUser", loginUser);
+//        String username = (String) request.getSession().getAttribute("loginUser");
         return "main";
     }
 
@@ -46,8 +46,10 @@ public class HomeController {
     public
     @ResponseBody
     String login(@RequestParam(required = true, value = "uname") String username,
-                 @RequestParam(required = true, value = "pwd") String password) {
+                 @RequestParam(required = true, value = "pwd") String password,
+                 HttpServletRequest request) {
         if (customerLoginBo.checkLogin(username, password)) {
+            request.getSession().setAttribute("loginUser", username);
             return username;
         }
         return null;
@@ -76,4 +78,27 @@ public class HomeController {
         List<ProductEntity> rs = productBo.getProductList(page, pageSize);
         return rs;
     }
+
+    @RequestMapping(value = "/product-details", method = RequestMethod.GET)
+    public String getProductDetails(@RequestParam(required = true, value = "id") int id,
+                                    ModelMap model) {
+        ProductEntity rs = productBo.getProductById(id);
+        model.addAttribute("product", rs);
+        CustomerRegisterForm registerUser = new CustomerRegisterForm();
+        model.addAttribute("registerUser", registerUser);
+        return "product-details";
+    }
+
+//    @RequestMapping(value = "/cart", method = RequestMethod.GET)
+//    public String addProductToCart(@RequestParam(required = true, value = "productId") int productId,
+//                                   ModelMap model, HttpServletRequest request) {
+//        CustomerRegisterForm registerUser = new CustomerRegisterForm();
+//        model.addAttribute("registerUser", registerUser);
+//        List<OrderDetailsEntity> carts = (List<OrderDetailsEntity>) request.getSession().getAttribute("cart");
+//        if (carts == null) {
+//            carts = new ArrayList<OrderDetailsEntity>();
+//        }
+//        carts.add(new OrderDetailsEntity(productId, null, ))
+//        return "cart";
+//    }
 }
