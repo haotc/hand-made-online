@@ -1,0 +1,59 @@
+#image-area {
+    display: inline-block;
+    width: 570px;
+    height: 420px;
+    float: left;
+}
+
+#image-area img {
+    height: 420px;
+    width: 570px;
+}
+
+#info-area {
+    display: inline-block;
+    float: left;
+    height: 100px;
+    width: 390px;
+}
+
+#info-area h1 {
+    color: #0193dc;
+    text-align: center;
+    font: normal 28px 'Segoe UI Light', Arial, Helvetica, sans-serif;
+    margin: 0px;
+}
+
+#info-area h2 {
+    color: green;
+    text-align: center;
+    font: normal 18px 'Segoe UI Light', Arial, Helvetica, sans-serif;
+    margin: 0px 0px 10px 0px;
+}
+
+#info-area .desc-area {
+    padding-left: 15px;
+    padding-left: 15px;
+    color: #4c4c4c;
+    font-size: 12px;
+    white-space: pre-wrap;
+    line-height: 20px;
+}
+
+#buy-button {
+    float: right;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background: #F971FF;
+    border: none;
+    width: auto;
+    color: #FFF;
+    padding: 7px 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#buy-button a {
+    color: #FFF;
+}

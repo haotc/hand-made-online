@@ -1,0 +1,35 @@
+.tbl-order {
+    border-collapse: collapse;
+    border-bottom: 1px solid #DCDCDC;
+    border-left: 1px solid #DCDCDC;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+    width: 100%;
+    margin-bottom: 18px;
+}
+
+table tbody {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.tbl-order th {
+    padding: 10px 15px;
+    border-top: 1px solid #DCDCDC;
+    vertical-align: middle;
+    font-size: 13px;
+    border-right: 1px solid #DCDCDC;
+}
+
+.tbl-order td product-img {
+    display: inline-block;
+    padding-top: 8px;
+    text-decoration: underline;
+    font-size: 13px;
+}
