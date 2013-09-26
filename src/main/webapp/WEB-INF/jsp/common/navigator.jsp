@@ -1,8 +1,11 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="navigator">
         <div class="navigator-wrapper">
             <div class="top-left-logo"><a href="www.vnexpress.net" class="logo-ref">
                 <div class="logo">
-                    <div class="logo-img"></div>
+                    <div class="logo-img">
+                        <img src="../assets/images/logo.png" />
+                    </div>
                     <div class="logo-text">Handmade Online</div>
                 </div>
             </a></div>
@@ -11,38 +14,64 @@
                 <div class="nav-list-content">
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general selected"><a href="http://www.vnexpress.net">Games</a></div>
-                        </div>
-                        <div id="sub1" class="sub-cate-list" style="display: block;">
-                            <div class="sub-cate">
-                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Games</a></div>
-                            </div>
-                            <div class="sub-cate">
-                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Games</a></div>
-                            </div>
-                            <div class="sub-cate">
-                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Games </a></div>
-                            </div>
+                            <div class="cate-text general selected"><a href="#">Sản phẩm nổi bật</a></div>
                         </div>
                     </div>
-                    <div class="separator-line"></div>
+                    <%--<div class="separator-line"></div>--%>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="http://www.vnexpress.net">Games</a></div>
+                            <div class="cate-text general"><a href="#">Thiệp</a></div>
+                        </div>
+                    </div>
+                    <%--<div class="separator-line"></div>--%>
+                    <div class="cate-item">
+                        <div class="main-cate">
+                            <div class="cate-text general"><a href="#">Quà tặng, đồ chơi</a></div>
+                        </div>
+                    </div>
+                    <%--<div class="separator-line"></div>--%>
+                    <div class="cate-item">
+                        <div class="main-cate">
+                            <div class="cate-text general"><a href="http://www.vnexpress.net">Đồ trang trí</a></div>
                         </div>
                         <div id="sub2" class="sub-cate-list" style="display: block;">
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Games</a></div>
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Trang trí nội thất</a></div>
                             </div>
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Games</a></div>
-                            </div>
-                            <div class="sub-cate">
-                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Games </a></div>
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Trang trí sự kiện</a></div>
                             </div>
                         </div>
                     </div>
-                    <div class="separator-line"></div>
+                    <%--<div class="separator-line"></div>--%>
+                    <div class="cate-item">
+                        <div class="main-cate">
+                            <div class="cate-text general"><a href="http://www.vnexpress.net">Phụ kiện</a></div>
+                        </div>
+                        <div id="sub2" class="sub-cate-list" style="display: block;">
+                            <div class="sub-cate">
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Trang sức</a></div>
+                            </div>
+                            <div class="sub-cate">
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Ví, túi xách</a></div>
+                            </div>
+                            <div class="sub-cate">
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Giày, dép</a></div>
+                            </div>
+                            <div class="sub-cate">
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Mũ, nón</a></div>
+                            </div>
+                            <div class="sub-cate">
+                                <div class="cate-text sub"><a href="http://www.vnexpress.net">Móc khóa</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <%--<div class="separator-line"></div>--%>
+                    <div class="cate-item">
+                        <div class="main-cate">
+                            <div class="cate-text general"><a href="#">Vật liệu handmade</a></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

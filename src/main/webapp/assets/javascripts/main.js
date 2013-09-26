@@ -10,7 +10,7 @@ $(document).ready(function() {
                         var item = rs[i];
                         appendStr = "<div class='item'><a href='product-details?id=" + item.id + "'><div class='wrapper'><div class='container'>"
                                 + "<img src='" + item.imageUrl + "'/><div class='title'>" + item.name + "</div>" + "<div class='comment'>" + item.numberOfSold + " lượt mua</div>"
-                                + "</div></div>"
+                                + "<div class='price'>" + item.unitPrice + " Đ</div>" + "</div></div>"
                                 + "<div class='description'><div class='header'><div class='title'><div class='text'>" + item.name
                                 + "</div></div><div class='logo'><img src='" + item.imageUrl + "' />" + "</div></div><div class='detail'>"
                                 + "<div class='text'>" + item.shortDesc + "</div><div class='rate'></div></div></div></a></div>";

@@ -13,7 +13,7 @@
 <head>
     <title>Handmade Online</title>
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
-    <%--<link rel="stylesheet" href="../assets/stylesheets/metro-bootstrap.css">--%>
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.hoverIntent.minified.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.leanModal.min.js"></script>

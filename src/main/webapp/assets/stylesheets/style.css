@@ -64,7 +64,7 @@ body >.wrapper .navigator .navigator-wrapper .top-left-logo .logo-ref .logo {
 }
 
 body >.wrapper .navigator .navigator-wrapper .top-left-logo .logo-ref .logo .logo-img {
-    background: url("../images/logo.png");
+    /*background: url("../images/logo.png");*/
     width: 32px;
     height: 32px;
     display: inline-block;
@@ -311,7 +311,6 @@ body >.wrapper .content .main-area .item .container .title {
 
 body >.wrapper .content .main-area .item .container .comment {
     top: 180px;
-    width: 211px;
     position: absolute;
     left: 19px;
     text-overflow: ellipsis;
@@ -319,6 +318,17 @@ body >.wrapper .content .main-area .item .container .comment {
     overflow: hidden;
     font-size: 11px;
     color: #333;
+}
+
+body >.wrapper .content .main-area .item .container .price {
+    top: 180px;
+    position: absolute;
+    right: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 13px;
+    color: #0CF;
 }
 
 body >.wrapper .content .main-area .item img {
