@@ -9,7 +9,7 @@ public class ProductEntity {
     private String name;
     private String shortDesc;
     private String detailDesc;
-    private double unitPrice;
+    private int unitPrice;
     private double discount;
     private String imageUrl;
     private String imageDesc;
@@ -58,11 +58,11 @@ public class ProductEntity {
     }
 
     @Column(name = "unit_price")
-    public double getUnitPrice() {
+    public int getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(double unitPrice) {
+    public void setUnitPrice(int unitPrice) {
         this.unitPrice = unitPrice;
     }
 

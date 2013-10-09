@@ -16,7 +16,6 @@
     <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.hoverIntent.minified.js"></script>
-    <script type="text/javascript" src="../assets/javascripts/jquery.leanModal.min.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.validate.js"></script>
     <script type="text/javascript" src="../assets/javascripts/navigation.js"></script>
     <script type="text/javascript" src="../assets/javascripts/main.js"></script>
@@ -36,10 +35,5 @@
         </div>
     </div>
 </div>
-
-<c:if test="${sessionScope.loginUser == null}">
-    <%@ include file="common/popup.jsp" %>
-</c:if>
-
 </body>
 </html>

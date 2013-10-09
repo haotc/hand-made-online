@@ -33,7 +33,7 @@ public class ProductBoImpl extends GenericBoImpl implements ProductBo {
         return productDao.readAllPlus();
     }
 
-//    @Override
+    @Override
     public ProductEntity getProductById(int id) {
         return productDao.findById(id);
     }

@@ -24,7 +24,7 @@
 <div class="wrapper">
     <div class="navigator">
         <div class="navigator-wrapper">
-            <div class="top-left-logo"><a href="www.vnexpress.net" class="logo-ref">
+            <div class="top-left-logo"><a href="/" class="logo-ref">
                 <div class="logo">
                     <div class="logo-img"></div>
                     <div class="logo-text">Handmade Online</div>

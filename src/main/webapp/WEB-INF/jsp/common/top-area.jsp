@@ -5,8 +5,8 @@
         <div class="user">
             <c:choose>
                 <c:when test="${sessionScope.loginUser == null}">
-                    <a id="login-label" rel="leanModal" href="#loginPopup">Đăng nhập</a>
-                    <a href="#register-popup" id='register-label' rel="leanModal">Đăng kí</a></span>
+                    <a id="login-label" href="login">Đăng nhập</a>
+                    <a href="register" id='register-label'>Đăng kí</a></span>
                 </c:when>
                 <c:otherwise>
                     <span id="login-name">${sessionScope.loginUser}</span>

@@ -1,5 +1,25 @@
-// Load initial products
 $(document).ready(function() {
+    // Slide the tile content when moused over
+    var hoverIntentParams = {
+        over : function() {
+            var a = $(this).children("a");
+            setTimeout(function() {
+                $(a).animate({
+                            marginTop : -200
+                        }, 300);
+            }, 100);
+        },
+        out : function() {
+            var a = $(this).children("a");
+            $(a).animate({
+                        marginTop : 0
+                    }, 50);
+        },
+        timeout : 100
+    };
+    $('.item').hoverIntent(hoverIntentParams);
+
+    // Load initial products
     $.ajax({
                 type: "GET",
                 url: "get-products",

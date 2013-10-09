@@ -1,35 +1,82 @@
-.tbl-order {
+#checkout-button {
+    float: right;
+    font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    background: #F971FF;
+    border: none;
+    width: auto;
+    color: #FFF;
+    padding: 7px 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+#checkout-button a {
+    color: #FFF;
+}
+
+.tbl-cart {
+    margin: 25px;
     border-collapse: collapse;
-    border-bottom: 1px solid #DCDCDC;
-    border-left: 1px solid #DCDCDC;
+    border: 1px solid #DCDCDC;
     border-collapse: collapse;
     border-spacing: 0;
     background-color: transparent;
-    width: 100%;
+    width: 900px;
     margin-bottom: 18px;
 }
 
 table tbody {
     margin: 0;
     padding: 0;
-    border: 0;
     outline: 0;
     font-size: 100%;
     vertical-align: baseline;
     background: transparent;
 }
 
-.tbl-order th {
+.tbl-cart th, td {
     padding: 10px 15px;
-    border-top: 1px solid #DCDCDC;
+    border: 1px solid #DCDCDC;
     vertical-align: middle;
     font-size: 13px;
-    border-right: 1px solid #DCDCDC;
 }
 
-.tbl-order td product-img {
+.tbl-cart td .product-img {
     display: inline-block;
+    float: left;
+    padding-top: 8px;
+}
+
+.tbl-cart td a {
+    display: inline-block;
+    float: left;
     padding-top: 8px;
     text-decoration: underline;
     font-size: 13px;
+    color: #0193dc;
+    margin-left: 5px;
 }
+
+.tbl-cart td .icon-del {
+    background: url(../images/icon-order-del.png) top left no-repeat;
+    width: 17px;
+    height: 19px;
+    display: block;
+}
+
+.tbl-cart td .price {
+    text-align: center;
+    font-size: 18px;
+    color: #F60;
+}
+
+.tbl-cart td .price i {
+    font-size: 15px;
+    font-style: normal;
+    position: relative;
+    top: -11px;
+}
+
+;

@@ -447,7 +447,7 @@ a {
 
 .text-field {
     position: relative;
-    width: 624px;
+    /*width: 624px;*/
     padding: 14px 20px;
     border-bottom: 1px solid #EEE;
 }
@@ -469,6 +469,17 @@ a {
     border-left: 1px solid #CCC;
     border-right: 1px solid #E7E6E6;
     border-bottom: 1px solid #E7E6E6;
+}
+
+#login-ct {
+    margin-left: 50px;
+    width: 425px;
+    /*margin: auto;*/
+}
+
+#register-ct {
+    margin-left: 50px;
+    width: 665px;
 }
 
 #login-header, #register-header {
@@ -501,16 +512,16 @@ a {
     margin-bottom: 10px;
 }
 
-.modal_close {
-    position: absolute;
-    top: 12px;
-    right: 12px;
-    display: block;
-    width: 14px;
-    height: 14px;
-    background: url(../images/modal_close.png);
-    z-index: 2;
-}
+/*.modal_close {*/
+    /*position: absolute;*/
+    /*top: 12px;*/
+    /*right: 12px;*/
+    /*display: block;*/
+    /*width: 14px;*/
+    /*height: 14px;*/
+    /*background: url(../images/modal_close.png);*/
+    /*z-index: 2;*/
+/*}*/
 
 #fail-msg {
     position: relative;
@@ -547,10 +558,6 @@ a {
 
 #logout-label {
     margin-top: 5px;
-}
-
-#product-popup {
-    width: 980px;
 }
 
 .undisplayed {
