@@ -1,0 +1,23 @@
+#shipping-ct {
+    margin-left: 50px;
+    width: 765px;
+}
+
+#recipientAddress {
+    padding: 8px;
+    font-size: 1.2em;
+    color: #222;
+    background: #F7F7F7;
+    outline: none;
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #E7E6E6;
+    border-bottom: 1px solid #E7E6E6;
+    width: 300px;
+    resize: none;
+}
+
+.text-field.address label.error {
+    vertical-align: top;
+    margin-top: 15px;
+}

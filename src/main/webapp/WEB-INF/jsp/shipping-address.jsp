@@ -11,13 +11,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Đăng kí</title>
+    <title>Địa chỉ giao hàng</title>
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
+    <link rel="stylesheet" href="../assets/stylesheets/shipping-address.css">
     <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
     <script type="text/javascript" src="../assets/javascripts/jquery.validate.js"></script>
     <script type="text/javascript" src="../assets/javascripts/navigation.js"></script>
-    <script type="text/javascript" src="../assets/javascripts/register.js"></script>
+    <script type="text/javascript" src="../assets/javascripts/shipping-address.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -26,27 +27,27 @@
         <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Đăng kí</div>
+                <div class="feature-text">Địa chỉ giao hàng</div>
                 <div class="clear"></div>
             </div>
-            <form:form id="register-form" action="register" method="post">
+            <form:form id="shipping-address-form" action="fill-shipping-address" method="post">
                 <div id="item-container">
-                    <div id="register-ct">
+                    <div id="shipping-ct">
                         <div class="text-field">
-                            <label>Tên đăng nhập</label>
-                            <input path="username" id="regUsername" name="regUsername" type="text"/>
+                            <label>Tên người nhận</label>
+                            <input id="recipientName" name="recipientName" type="text"/>
                         </div>
                         <div class="text-field">
                             <label>Email</label>
-                            <input path="email" id="regEmail" name="regEmail" type="text"/>
+                            <input id="recipientMail" name="recipientMail" type="text"/>
                         </div>
                         <div class="text-field">
-                            <label>Mật khẩu</label>
-                            <input path="password" id="regPassword" name="regPassword" type="password"/>
+                            <label>Số điện thoại</label>
+                            <input id="recipientPhone" name="recipientPhone" type="text"/>
                         </div>
-                        <div class="text-field">
-                            <label>Xác nhận mật khẩu</label>
-                            <input path="confirmPassword" id="regRepassword" name="regRepassword" type="password"/>
+                        <div class="text-field address">
+                            <label style="vertical-align: top;margin-top: 15px;">Địa chỉ giao hàng</label>
+                            <textarea id="recipientAddress" name="recipientAddress" rows="3"></textarea>
                         </div>
                         <div class="btn-fld">
                             <button id="reg-button" type="submit">Hoàn tất »</button>

@@ -23,7 +23,7 @@ $.extend($.fn, {
 			return;
 		}
 
-		// check if a validator for this form was already created
+		// check if a validator for this model was already created
 		var validator = $.data( this[0], "validator" );
 		if ( validator ) {
 			return validator;
@@ -52,10 +52,10 @@ $.extend($.fn, {
 				}
 			});
 
-			// validate the form on submit
+			// validate the model on submit
 			this.submit( function( event ) {
 				if ( validator.settings.debug ) {
-					// prevent form submit to be able to see console output
+					// prevent model submit to be able to see console output
 					event.preventDefault();
 				}
 				function handle() {
@@ -97,7 +97,7 @@ $.extend($.fn, {
 	},
 	// http://docs.jquery.com/Plugins/Validation/valid
 	valid: function() {
-		if ( $(this[0]).is("form")) {
+		if ( $(this[0]).is("model")) {
 			return this.validate().form();
 		} else {
 			var valid = true;
@@ -343,17 +343,17 @@ $.extend($.validator, {
 				.validateDelegate("[type='radio'], [type='checkbox'], select, option", "click", delegate);
 
 			if ( this.settings.invalidHandler ) {
-				$(this.currentForm).bind("invalid-form.validate", this.settings.invalidHandler);
+				$(this.currentForm).bind("invalid-model.validate", this.settings.invalidHandler);
 			}
 		},
 
-		// http://docs.jquery.com/Plugins/Validation/Validator/form
+		// http://docs.jquery.com/Plugins/Validation/Validator/model
 		form: function() {
 			this.checkForm();
 			$.extend(this.submitted, this.errorMap);
 			this.invalid = $.extend({}, this.errorMap);
 			if ( !this.valid() ) {
-				$(this.currentForm).triggerHandler("invalid-form", [this]);
+				$(this.currentForm).triggerHandler("invalid-model", [this]);
 			}
 			this.showErrors();
 			return this.valid();
@@ -472,7 +472,7 @@ $.extend($.validator, {
 			var validator = this,
 				rulesCache = {};
 
-			// select all valid inputs inside the form (no submit or reset buttons)
+			// select all valid inputs inside the model (no submit or reset buttons)
 			return $(this.currentForm)
 			.find("input, select, textarea")
 			.not(":submit, :reset, :image, [disabled]")
@@ -790,7 +790,7 @@ $.extend($.validator, {
 				$(this.currentForm).submit();
 				this.formSubmitted = false;
 			} else if (!valid && this.pendingRequest === 0 && this.formSubmitted) {
-				$(this.currentForm).triggerHandler("invalid-form", [this]);
+				$(this.currentForm).triggerHandler("invalid-model", [this]);
 				this.formSubmitted = false;
 			}
 		},

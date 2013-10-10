@@ -1,6 +1,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <div class="top-area">
+    <a class="nav-cart" href="cart"></a>
     <div class="user-setting">
         <div class="user">
             <c:choose>

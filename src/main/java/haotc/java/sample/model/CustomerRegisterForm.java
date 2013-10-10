@@ -1,4 +1,4 @@
-package haotc.java.sample.form;
+package haotc.java.sample.model;
 
 /**
  * Created by IntelliJ IDEA.

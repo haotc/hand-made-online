@@ -12,7 +12,7 @@ import javax.persistence.Table;
  */
 //@Entity
 //@Table(name = "order_details")
-public class OrderDetailsEntity {
+public class OrderItemEntity {
     private int id;
     private int orderId;
     private int productId;
@@ -20,7 +20,7 @@ public class OrderDetailsEntity {
     private double unitPrice;
     private double total;
 
-    public OrderDetailsEntity(int orderId, int productId, int quantity, double total, double unitPrice) {
+    public OrderItemEntity(int orderId, int productId, int quantity, double total, double unitPrice) {
         this.orderId = orderId;
         this.productId = productId;
         this.quantity = quantity;

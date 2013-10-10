@@ -1,4 +1,6 @@
-package haotc.java.sample.form;
+package haotc.java.sample.model;
+
+import java.io.Serializable;
 
 /**
  * Created by IntelliJ IDEA.
@@ -7,7 +9,7 @@ package haotc.java.sample.form;
  * Time: 9:00 AM
  * To change this template use File | Settings | File Templates.
  */
-public class CartItemModel {
+public class CartItemModel implements Serializable {
     private int productId;
     private String productName;
     private int quantity;

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // validator for registering
-    $("#register-form").validate({
+    $("#register-model").validate({
                 rules: {
                     regUsername: "required"
                 },

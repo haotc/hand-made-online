@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Handmade Online</title>
+    <title>${product.name}</title>
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
     <link rel="stylesheet" href="../assets/stylesheets/product-details.css">
     <%--<link rel="stylesheet" href="../assets/stylesheets/metro-bootstrap.css">--%>
@@ -29,7 +29,7 @@
         <div class="main-area">
             <div class="feature">
                 <div class="feature-text">Thông tin sản phẩm</div>
-                <button id="buy-button"><a href="add-to-cart?productId=${product.id}">Thêm vào giỏ hàng »</a></button>
+                <a href="add-to-cart?productId=${product.id}"><button id="buy-button">Thêm vào giỏ hàng »</button></a>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
@@ -47,10 +47,6 @@
         </div>
     </div>
 </div>
-
-<c:if test="${sessionScope.loginUser == null}">
-    <%@ include file="common/popup.jsp" %>
-</c:if>
 
 </body>
 </html>

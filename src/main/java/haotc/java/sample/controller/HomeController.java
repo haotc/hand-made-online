@@ -3,11 +3,10 @@ package haotc.java.sample.controller;
 import haotc.java.sample.bo.CustomerLoginBo;
 import haotc.java.sample.bo.CustomerRegisterBo;
 import haotc.java.sample.bo.ProductBo;
-import haotc.java.sample.entity.OrderDetailsEntity;
 import haotc.java.sample.entity.ProductEntity;
-import haotc.java.sample.form.CartItemModel;
-import haotc.java.sample.form.CustomerRegisterForm;
-import haotc.java.sample.form.LoginForm;
+import haotc.java.sample.model.CartItemModel;
+import haotc.java.sample.model.CustomerRegisterForm;
+import haotc.java.sample.model.LoginForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -39,7 +38,7 @@ public class HomeController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String initProduct() {
-        return "index";
+        return "main";
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -79,11 +78,14 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String processRegister(@ModelAttribute("registerUser") CustomerRegisterForm registerUser,
+    public String processRegister(@RequestParam(required = true, value = "regUsername") String regUsername,
+                                  @RequestParam(required = true, value = "regEmail") String regEmail,
+                                  @RequestParam(required = true, value = "regPassword") String regPassword,
+                                  @RequestParam(required = true, value = "regRepassword") String regRepassword,
                                   HttpServletRequest request) {
-        customerRegisterBo.register(registerUser.getUsername(), registerUser.getEmail(), registerUser.getPassword());
+        customerRegisterBo.register(regUsername, regEmail, regPassword);
 
-        request.getSession().setAttribute("loginUser", registerUser.getUsername());
+        request.getSession().setAttribute("loginUser", regUsername);
         return "redirect:/";
     }
 
@@ -159,5 +161,21 @@ public class HomeController {
     @RequestMapping(value = "/cart", method = RequestMethod.GET)
     public String addProductToCart(ModelMap model, HttpServletRequest request) {
         return "cart";
+    }
+
+    @RequestMapping(value = "/shipping-address", method = RequestMethod.GET)
+    public String addShippingAddress(ModelMap model, HttpServletRequest request) {
+        if (request.getSession().getAttribute("loginUser") == null) {
+            return "redirect:/login";
+        }
+        return "shipping-address";
+    }
+
+    @RequestMapping(value = "/fill-shipping-address", method = RequestMethod.POST)
+    public String processShippingAddress(ModelMap model, HttpServletRequest request) {
+        if (request.getSession().getAttribute("loginUser") == null) {
+            return "redirect:/login";
+        }
+        return "shipping-address";
     }
 }

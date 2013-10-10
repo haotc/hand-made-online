@@ -30,7 +30,7 @@
             <div class="feature">
                 <div class="feature-text">Giỏ hàng</div>
                 <c:if test="${not empty sessionScope.cart}">
-                    <button id="checkout-button"><a href="checkout">Thanh toán »</a></button>
+                    <a href="shipping-address"><button id="checkout-button">Thanh toán »</button></a>
                 </c:if>
                 <div class="clear"></div>
             </div>
@@ -84,10 +84,6 @@
         </div>
     </div>
 </div>
-
-<c:if test="${sessionScope.loginUser == null}">
-    <%@ include file="common/popup.jsp" %>
-</c:if>
 
 </body>
 </html>

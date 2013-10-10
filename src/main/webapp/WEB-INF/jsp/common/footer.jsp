@@ -4,7 +4,7 @@
 
 <c:if test="${sessionScope.loginUser == null}">
     <div id="loginPopup" class="popup">
-            <%--<form:form commandName="loginUser" action="login" method="post">--%>
+            <%--<model:model commandName="loginUser" action="login" method="post">--%>
         <div id="login-ct">
             <div id="login-header">
                 <h2>Đăng nhập</h2>
@@ -23,7 +23,7 @@
                 <button id="login-button">Đăng nhập »</button>
             </div>
         </div>
-            <%--</form:form>--%>
+            <%--</model:model>--%>
     </div>
 
     <div id="register-popup" class="popup">

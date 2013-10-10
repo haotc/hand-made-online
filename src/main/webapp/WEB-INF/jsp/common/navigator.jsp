@@ -12,11 +12,11 @@
             <div class="search-area"><input type="text" placeholder="Search store" class="search-box"></div>
             <div class="nav-list">
                 <div class="nav-list-content">
-                    <%--<div class="cate-item">
+                    <div class="cate-item">
                         <div class="main-cate">
                             <div class="cate-text general selected"><a href="/">Sản phẩm nổi bật</a></div>
                         </div>
-                    </div>--%>
+                    </div>
                     <%--<div class="separator-line"></div>--%>
                     <div class="cate-item">
                         <div class="main-cate">

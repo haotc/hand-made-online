@@ -513,14 +513,14 @@ a {
 }
 
 /*.modal_close {*/
-    /*position: absolute;*/
-    /*top: 12px;*/
-    /*right: 12px;*/
-    /*display: block;*/
-    /*width: 14px;*/
-    /*height: 14px;*/
-    /*background: url(../images/modal_close.png);*/
-    /*z-index: 2;*/
+/*position: absolute;*/
+/*top: 12px;*/
+/*right: 12px;*/
+/*display: block;*/
+/*width: 14px;*/
+/*height: 14px;*/
+/*background: url(../images/modal_close.png);*/
+/*z-index: 2;*/
 /*}*/
 
 #fail-msg {
@@ -562,4 +562,13 @@ a {
 
 .undisplayed {
     display: none;
+}
+
+.nav-cart {
+    background: url(../images/nav-cart.png) top left no-repeat;
+    height: 50px;
+    width: 90px;
+    margin-right: 100px;
+    position: absolute;
+    right: 0px;
 }
