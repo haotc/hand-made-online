@@ -3,9 +3,7 @@ package haotc.java.sample.dao.impl;
 import haotc.java.sample.dao.ProductDao;
 import haotc.java.sample.entity.ProductEntity;
 import org.hibernate.Criteria;
-import org.hibernate.Query;
-import org.hibernate.criterion.Projections;
-import org.hibernate.transform.Transformers;
+import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,7 +17,7 @@ public class ProductDaoImpl extends GenericDaoImpl<ProductEntity, Integer>
     }
 
     @Override
-    public List<ProductEntity> readAllPlus() {
+    public List<ProductEntity> getProductList(int page, int pageSize) {
 //        String query =
 //                "SELECT product.id, " +
 //                        "product.name, " +
@@ -35,6 +33,9 @@ public class ProductDaoImpl extends GenericDaoImpl<ProductEntity, Integer>
 //        Query query = getSession().createQuery(queryStr);
 //        return getSession().createQuery(queryStr).setResultTransformer(Transformers.aliasToBean(ProductEntity.class)).list();
         Criteria crit = getSession().createCriteria(ProductEntity.class);
+        crit.addOrder(Order.desc(("numberOfSold")));
+        crit.setMaxResults(pageSize);
+        crit.setFirstResult((page - 1) * pageSize);
 //        crit.setProjection(Projections.projectionList()
 //                .add(Projections.property("id"), "id")
 //                .add(Projections.property("name"), "name")

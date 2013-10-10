@@ -12,8 +12,8 @@ import java.security.PrivateKey;
  * To change this template use File | Settings | File Templates.
  */
 
-@Entity
-@Table(name = "shipping_address")
+//@Entity
+//@Table(name = "shipping_address")
 public class ShippingAddressEntity {
     private String id;
     private String orderId;

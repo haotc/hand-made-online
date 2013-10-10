@@ -34,19 +34,19 @@
                     <div id="register-ct">
                         <div class="text-field">
                             <label>Tên đăng nhập</label>
-                            <input path="username" id="regUsername" name="regUsername" type="text"/>
+                            <input id="regUsername" name="regUsername" type="text"/>
                         </div>
                         <div class="text-field">
                             <label>Email</label>
-                            <input path="email" id="regEmail" name="regEmail" type="text"/>
+                            <input id="regEmail" name="regEmail" type="text"/>
                         </div>
                         <div class="text-field">
                             <label>Mật khẩu</label>
-                            <input path="password" id="regPassword" name="regPassword" type="password"/>
+                            <input id="regPassword" name="regPassword" type="password"/>
                         </div>
                         <div class="text-field">
                             <label>Xác nhận mật khẩu</label>
-                            <input path="confirmPassword" id="regRepassword" name="regRepassword" type="password"/>
+                            <input id="regRepassword" name="regRepassword" type="password"/>
                         </div>
                         <div class="btn-fld">
                             <button id="reg-button" type="submit">Hoàn tất »</button>

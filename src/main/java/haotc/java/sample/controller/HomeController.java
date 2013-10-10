@@ -1,8 +1,10 @@
 package haotc.java.sample.controller;
 
+import haotc.java.sample.bo.CategoryBo;
 import haotc.java.sample.bo.CustomerLoginBo;
 import haotc.java.sample.bo.CustomerRegisterBo;
 import haotc.java.sample.bo.ProductBo;
+import haotc.java.sample.common.Category;
 import haotc.java.sample.entity.ProductEntity;
 import haotc.java.sample.model.CartItemModel;
 import haotc.java.sample.model.CustomerRegisterForm;
@@ -31,13 +33,25 @@ public class HomeController {
     private ProductBo productBo;
 
     @Autowired
+    private CategoryBo categoryBo;
+
+    @Autowired
     private CustomerLoginBo customerLoginBo;
 
     @Autowired
     private CustomerRegisterBo customerRegisterBo;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String initProduct() {
+    public String initDefaultProduct() {
+        return "main";
+    }
+
+    @RequestMapping(value = "/{categoryName}", method = RequestMethod.GET)
+    public String initProductOnCategory(@PathVariable String categoryName, ModelMap model) {
+        if (categoryName.equalsIgnoreCase(Category.HIGHT_LIGHT_PRODUCT)) {
+            return "main";
+        }
+        model.addAttribute("categoryId", categoryBo.getCategoryByName().getId());
         return "main";
     }
 
@@ -93,8 +107,9 @@ public class HomeController {
     public
     @ResponseBody
     List<ProductEntity> getProductList(@RequestParam(required = true, value = "page") int page,
-                                       @RequestParam(required = true, value = "pageSize") int pageSize) {
-        List<ProductEntity> rs = productBo.getProductList(page, pageSize);
+                                       @RequestParam(required = true, value = "pageSize") int pageSize,
+                                       @RequestParam(required = false, value = "orderBy") String orderBy) {
+        List<ProductEntity> rs = productBo.getProductList(page, pageSize, orderBy);
         return rs;
     }
 

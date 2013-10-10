@@ -14,7 +14,7 @@
                 <div class="nav-list-content">
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general selected"><a href="/">Sản phẩm nổi bật</a></div>
+                            <div class="cate-text general selected"><a href="/san-pham-noi-bat">Sản phẩm nổi bật</a></div>
                         </div>
                     </div>
                     <%--<div class="separator-line"></div>--%>
@@ -34,7 +34,7 @@
                         <div class="main-cate">
                             <div class="cate-text general"><a href="/">Đồ trang trí</a></div>
                         </div>
-                        <div id="sub2" class="sub-cate-list" style="display: block;">
+                        <div class="sub-cate-list" style="display: block;">
                             <div class="sub-cate">
                                 <div class="cate-text sub"><a href="/">Trang trí nội thất</a></div>
                             </div>
@@ -48,7 +48,7 @@
                         <div class="main-cate">
                             <div class="cate-text general"><a href="/">Phụ kiện</a></div>
                         </div>
-                        <div id="sub2" class="sub-cate-list" style="display: block;">
+                        <div class="sub-cate-list" style="display: block;">
                             <div class="sub-cate">
                                 <div class="cate-text sub"><a href="/">Trang sức</a></div>
                             </div>

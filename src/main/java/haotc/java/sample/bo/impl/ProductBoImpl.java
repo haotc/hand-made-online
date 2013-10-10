@@ -29,8 +29,8 @@ public class ProductBoImpl extends GenericBoImpl implements ProductBo {
     }
 
     @Override
-    public List<ProductEntity> getProductList(int page, int pageSize) {
-        return productDao.readAllPlus();
+    public List<ProductEntity> getProductList(int page, int pageSize, String orderBy) {
+        return productDao.getProductList(page, pageSize);
     }
 
     @Override
