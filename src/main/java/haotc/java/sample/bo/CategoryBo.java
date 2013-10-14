@@ -10,5 +10,5 @@ import haotc.java.sample.entity.CategoryEntity;
  * To change this template use File | Settings | File Templates.
  */
 public interface CategoryBo {
-    CategoryEntity getCategoryByName();
+    CategoryEntity getCategoryByName(String name);
 }

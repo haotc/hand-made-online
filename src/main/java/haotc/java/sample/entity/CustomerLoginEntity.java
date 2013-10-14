@@ -9,15 +9,17 @@ public class CustomerLoginEntity {
     private String login;
     private String password;
     private String customerId;
+    private String email;
     private Date createdDate;
     private Date updatedDate;
 
     public CustomerLoginEntity() {
     }
 
-    public CustomerLoginEntity(String login, String password, String customerId, Date createdDate, Date updatedDate) {
+    public CustomerLoginEntity(String login, String password, String customerId, String email, Date createdDate, Date updatedDate) {
         this.login = login;
         this.password = password;
+        this.email = email;
         this.customerId = customerId;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
@@ -67,5 +69,14 @@ public class CustomerLoginEntity {
 
     public void setUpdatedDate(Date updatedDate) {
         this.updatedDate = updatedDate;
+    }
+
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

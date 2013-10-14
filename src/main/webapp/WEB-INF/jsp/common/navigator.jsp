@@ -14,19 +14,19 @@
                 <div class="nav-list-content">
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general selected"><a href="/san-pham-noi-bat">Sản phẩm nổi bật</a></div>
+                            <div class="cate-text general href selected"><a href="san-pham-noi-bat">Sản phẩm nổi bật</a></div>
                         </div>
                     </div>
                     <%--<div class="separator-line"></div>--%>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="/">Thiệp</a></div>
+                            <div class="cate-text general href"><a href="thiep">Thiệp</a></div>
                         </div>
                     </div>
                     <%--<div class="separator-line"></div>--%>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="/">Quà tặng, đồ chơi</a></div>
+                            <div class="cate-text general href"><a href="qua-tang-do-choi">Quà tặng, đồ chơi</a></div>
                         </div>
                     </div>
                     <%--<div class="separator-line"></div>--%>
@@ -36,40 +36,40 @@
                         </div>
                         <div class="sub-cate-list" style="display: block;">
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Trang trí nội thất</a></div>
+                                <div class="cate-text sub href"><a href="trang-tri-noi-that">Trang trí nội thất</a></div>
                             </div>
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Trang trí sự kiện</a></div>
+                                <div class="cate-text sub href"><a href="trang-tri-su-kien">Trang trí sự kiện</a></div>
                             </div>
                         </div>
                     </div>
                     <%--<div class="separator-line"></div>--%>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="/">Phụ kiện</a></div>
+                            <div class="cate-text general href"><a href="phu-kien">Phụ kiện</a></div>
                         </div>
                         <div class="sub-cate-list" style="display: block;">
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Trang sức</a></div>
+                                <div class="cate-text sub href"><a href="trang-suc">Trang sức</a></div>
                             </div>
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Ví, túi xách</a></div>
+                                <div class="cate-text sub href"><a href="vi-tui-xach">Ví, túi xách</a></div>
                             </div>
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Giày, dép</a></div>
+                                <div class="cate-text sub href"><a href="giay-dep">Giày, dép</a></div>
                             </div>
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Mũ, nón</a></div>
+                                <div class="cate-text sub href"><a href="mu-non">Mũ, nón</a></div>
                             </div>
                             <div class="sub-cate">
-                                <div class="cate-text sub"><a href="/">Móc khóa</a></div>
+                                <div class="cate-text sub href"><a href="moc-khoa">Móc khóa</a></div>
                             </div>
                         </div>
                     </div>
                     <%--<div class="separator-line"></div>--%>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="#">Vật liệu handmade</a></div>
+                            <div class="cate-text general href"><a href="vat-lieu-hand-made">Vật liệu handmade</a></div>
                         </div>
                     </div>
                 </div>

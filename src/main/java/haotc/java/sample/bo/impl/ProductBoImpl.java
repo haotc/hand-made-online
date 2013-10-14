@@ -1,6 +1,7 @@
 package haotc.java.sample.bo.impl;
 
 import haotc.java.sample.bo.ProductBo;
+import haotc.java.sample.common.Category;
 import haotc.java.sample.dao.ProductDao;
 import haotc.java.sample.entity.ProductEntity;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,8 +30,11 @@ public class ProductBoImpl extends GenericBoImpl implements ProductBo {
     }
 
     @Override
-    public List<ProductEntity> getProductList(int page, int pageSize, String orderBy) {
-        return productDao.getProductList(page, pageSize);
+    public List<ProductEntity> getProductList(int page, int pageSize, String categoryName) {
+        if (Category.HIGHT_LIGHT_PRODUCT.equalsIgnoreCase(categoryName)) {
+            return productDao.getProductList(page, pageSize);
+        }
+        return productDao.getProductList(page, pageSize, categoryName);
     }
 
     @Override

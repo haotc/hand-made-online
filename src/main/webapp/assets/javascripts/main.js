@@ -20,13 +20,15 @@ $(document).ready(function() {
     $('.item').hoverIntent(hoverIntentParams);
 
     // Load initial products step by step, each time load 8 items
+    // get category id from model
+    var categoryName = $('.cate-text.href.selected').val();
     var PAGE_SIZE = 8;
     var currentPage = 1;
     var loadProductList = function() {
         $.ajax({
                     type: "GET",
                     url: "get-products",
-                    data: {"page": currentPage, "pageSize": PAGE_SIZE},
+                    data: {"page": currentPage, "pageSize": PAGE_SIZE, "categoryName": categoryName},
                     success: function(rs) {
                         // append products to screen
                         var appendStr = "";
@@ -48,11 +50,18 @@ $(document).ready(function() {
                         }
                     },
                     error: function(err) {
-                        console.log("Login failed");
-                        $('#fail-msg').removeClass('undisplayed');
+                        console.log("Get products failed");
                         return false;
                     }
                 });
     }
     loadProductList();
+
+    // Animation for sidebar
+    $('.cate-text.href').click(function() {
+        $("#item-container").empty();
+        categoryName = $(this).children('a').attr('href');
+        currentPage = 1;
+        loadProductList();
+    });
 });

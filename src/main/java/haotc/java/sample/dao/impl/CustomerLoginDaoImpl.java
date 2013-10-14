@@ -6,6 +6,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
+import java.util.List;
 
 @Repository
 public class CustomerLoginDaoImpl extends GenericDaoImpl<CustomerLoginEntity, String>
@@ -24,6 +25,11 @@ public class CustomerLoginDaoImpl extends GenericDaoImpl<CustomerLoginEntity, St
 
     @Override
     public String saveCustomerLogin(String username, String email, String password) {
-        return save(new CustomerLoginEntity(username, password, null, new Date(), new Date()));
+        return save(new CustomerLoginEntity(username, password, email, null, new Date(), new Date()));
+    }
+
+    @Override
+    public List<CustomerLoginEntity> getList() {
+        return getSession().createCriteria(CustomerLoginEntity.class).list();
     }
 }

@@ -16,7 +16,7 @@ public class ProductEntity {
     private String status;
     private int total;
     private int quantity;
-    private int categoryId;
+    private CategoryEntity category;
     private int numberOfSold;
 
     @Id
@@ -66,13 +66,14 @@ public class ProductEntity {
         this.unitPrice = unitPrice;
     }
 
-    @Column(name = "category_id")
-    public int getCategoryId() {
-        return categoryId;
+    @OneToOne
+    @JoinColumn(name = "category_id")
+    public CategoryEntity getCategory() {
+        return category;
     }
 
-    public void setCategoryId(int categoryId) {
-        this.categoryId = categoryId;
+    public void setCategory(CategoryEntity category) {
+        this.category = category;
     }
 
     @Column(name = "discount")

@@ -1,6 +1,6 @@
 $(document).ready(function() {
     // Animation for sidebar
-    $('.cate-text.general').click(function() {
+    $('.cate-text').click(function() {
         $('.cate-text').removeClass('selected');
         $(this).addClass('selected');
         if ($(this).parent().hasClass('main-cate')) {

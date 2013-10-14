@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>${product.name}</title>
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
     <link rel="stylesheet" href="../assets/stylesheets/product-details.css">
     <%--<link rel="stylesheet" href="../assets/stylesheets/metro-bootstrap.css">--%>
@@ -29,7 +30,10 @@
         <div class="main-area">
             <div class="feature">
                 <div class="feature-text">Thông tin sản phẩm</div>
-                <a href="add-to-cart?productId=${product.id}"><button id="buy-button">Thêm vào giỏ hàng »</button></a>
+                <a href="add-to-cart?productId=${product.id}">
+                    <button id="buy-button">Thêm vào giỏ hàng »</button>
+                </a>
+
                 <div class="clear"></div>
             </div>
             <div id="item-container">
@@ -41,7 +45,24 @@
 
                     <h2>${product.unitPrice} Đ</h2>
 
-                    <p class="desc-area">${product.detailDesc}</p>
+                    <div class="detai-item">
+                        <label>Mô tả sản phẩm: </label>${product.detailDesc}
+                    </div>
+                    <div class="detai-item">
+                        <label>Nhà sản xuất: </label>Shop Lolypop
+                    </div>
+                    <div class="detai-item">
+                        <label>Loại sản phẩm: </label>${product.category.description}
+                    </div>
+                    <div class="detai-item">
+                        <label>Số lượng đã bán: </label>${product.numberOfSold}
+                    </div>
+                    <div class="detai-item">
+                        <label>Số lượng còn lại: </label>${product.quantity}
+                    </div>
+                    <div class="detai-item">
+                        <label>Lưu ý khi sử dụng: </label>Không để gần nơi có nhiệt độ cao
+                    </div>
                 </div>
             </div>
         </div>

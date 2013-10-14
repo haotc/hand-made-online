@@ -1,0 +1,62 @@
+.tbl-cart {
+    margin: 25px;
+    border-collapse: collapse;
+    border: 1px solid #DCDCDC;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+    width: 900px;
+    margin-bottom: 18px;
+}
+
+table tbody {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.tbl-cart th, td {
+    padding: 10px 15px;
+    border: 1px solid #DCDCDC;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.tbl-cart td .product-img {
+    display: inline-block;
+    float: left;
+    padding-top: 8px;
+}
+
+.tbl-cart td a {
+    display: inline-block;
+    float: left;
+    padding-top: 8px;
+    text-decoration: underline;
+    font-size: 13px;
+    color: #0193dc;
+    margin-left: 5px;
+}
+
+.tbl-cart td .icon-del {
+    background: url(../images/icon-order-del.png) top left no-repeat;
+    width: 17px;
+    height: 19px;
+    display: block;
+}
+
+.tbl-cart td .price {
+    text-align: center;
+    font-size: 18px;
+    color: #F60;
+}
+
+.tbl-cart td .price i {
+    font-size: 15px;
+    font-style: normal;
+    position: relative;
+    top: -11px;
+}
