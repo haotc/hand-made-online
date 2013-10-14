@@ -17,15 +17,16 @@ public class CustomerLoginDaoImpl extends GenericDaoImpl<CustomerLoginEntity, St
     }
 
     @Override
-    public boolean checkLogin(String username, String password) {
+    public boolean checkLogin(String username, String password, String role) {
         return ((getSession().createCriteria(CustomerLoginEntity.class)
                 .add(Restrictions.eq("login", username))
+                .add(Restrictions.eq("role", role))
                 .add(Restrictions.eq("password", password))).list().size() == 1);
     }
 
     @Override
     public String saveCustomerLogin(String username, String email, String password) {
-        return save(new CustomerLoginEntity(username, password, email, null, new Date(), new Date()));
+        return save(new CustomerLoginEntity(username, password, null, email, "CUSTOMER", new Date(), new Date()));
     }
 
     @Override

@@ -12,9 +12,9 @@
 <html>
 <head>
     <title>Đăng nhập</title>
-    <link rel="stylesheet" href="../assets/stylesheets/style.css">
-    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
-    <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/style.css">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo.png" type="image/png">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/javascripts/jquery-1.10.2.js"></script>
 </head>
 <body>
 <div class="wrapper">
@@ -23,7 +23,7 @@
             <div class="top-left-logo"><a href="/" class="logo-ref">
                 <div class="logo">
                     <div class="logo-img">
-                        <img src="../assets/images/logo.png" />
+                        <img src="${pageContext.request.contextPath}/assets/images/logo.png" />
                     </div>
                     <div class="logo-text">Handmade Online</div>
                 </div>
@@ -32,22 +32,22 @@
                 <div class="nav-list-content">
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general href selected"><a href="san-pham-noi-bat">Sản phẩm</a></div>
+                            <div class="cate-text general"><a href="user/list">Người dùng</a></div>
                         </div>
                     </div>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="#">Loại sản phẩm</a></div>
+                            <div class="cate-text general"><a href="product">Sản phẩm</a></div>
                         </div>
                     </div>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="#">Đơn hàng</a></div>
+                            <div class="cate-text general"><a href="product">Loại sản phẩm</a></div>
                         </div>
                     </div>
                     <div class="cate-item">
                         <div class="main-cate">
-                            <div class="cate-text general"><a href="#">Người dùng</a></div>
+                            <div class="cate-text general"><a href="order">Đơn hàng</a></div>
                         </div>
                     </div>
                 </div>

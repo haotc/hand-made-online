@@ -1,15 +1,10 @@
 package haotc.java.sample.controller;
 
 import haotc.java.sample.bo.CategoryBo;
-import haotc.java.sample.bo.CustomerLoginBo;
-import haotc.java.sample.bo.CustomerRegisterBo;
+import haotc.java.sample.bo.UserLoginBo;
 import haotc.java.sample.bo.ProductBo;
-import haotc.java.sample.common.Category;
-import haotc.java.sample.entity.CategoryEntity;
+import haotc.java.sample.common.CommonConstants;
 import haotc.java.sample.entity.CustomerLoginEntity;
-import haotc.java.sample.entity.ProductEntity;
-import haotc.java.sample.model.CartItemModel;
-import haotc.java.sample.model.CustomerRegisterForm;
 import haotc.java.sample.model.LoginForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +12,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -28,6 +22,7 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
+@RequestMapping("admin")
 public class AdminController {
 
     @Autowired
@@ -37,45 +32,69 @@ public class AdminController {
     private CategoryBo categoryBo;
 
     @Autowired
-    private CustomerLoginBo customerLoginBo;
+    private UserLoginBo userLoginBo;
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    @RequestMapping(value = "index", method = RequestMethod.GET)
     public String initAdminPage(HttpServletRequest request) {
         if (request.getSession().getAttribute("loginUser") == null) {
-            return "redirect:/admin-login";
+            return "redirect:admin-login";
         }
         return "admin-main";
     }
 
-    @RequestMapping(value = "/admin-login", method = RequestMethod.GET)
+    @RequestMapping(value = "admin-login", method = RequestMethod.GET)
     public String login(ModelMap model, HttpServletRequest request) {
         if (request.getSession().getAttribute("loginUser") == null) {
             model.addAttribute("loginForm", new LoginForm());
             return "admin-login";
         }
-        return "redirect:/";
+        return "redirect:admin/index";
     }
 
-    @RequestMapping(value = "/admin-login", method = RequestMethod.POST)
+    @RequestMapping(value = "admin-login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginForm") LoginForm loginForm, ModelMap model,
                         HttpServletRequest request) {
-        if (customerLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword())) {
+        if (userLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword(), CommonConstants.ADMIN_ROLE)) {
             request.getSession().setAttribute("loginUser", loginForm.getUsername());
-            return "redirect:/admin";
+            return "redirect:index";
         }
         model.addAttribute("loginForm", loginForm);
         model.addAttribute("loginFailed", true);
         return "admin-login";
     }
 
-    @RequestMapping(value = "/admin/user", method = RequestMethod.GET)
+    @RequestMapping(value = "user/list", method = RequestMethod.GET)
     public String getCustomerList(ModelMap model, HttpServletRequest request) {
         if (request.getSession().getAttribute("loginUser") == null) {
             model.addAttribute("loginForm", new LoginForm());
             return "admin-login";
         }
-        List<CustomerLoginEntity> customerList = customerLoginBo.getCustomerLoginList();
+        List<CustomerLoginEntity> customerList = userLoginBo.getCustomerLoginList();
         model.addAttribute("userList", customerList);
         return "admin-user";
+    }
+
+    @RequestMapping(value = "user/delete", method = RequestMethod.GET)
+    public String getUserInfo(@RequestParam(required = true, value = "us") String userLogin) {
+        try {
+            userLoginBo.remove(userLogin);
+            return "redirect:list";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/error";
+        }
+    }
+
+    @RequestMapping(value = "user/{us}", method = RequestMethod.GET)
+    public String getDeleteUser(@PathVariable(value = "us") String userLogin,
+                                HttpServletRequest request,
+                                ModelMap model) {
+        try {
+            model.addAttribute("user", userLoginBo.getUser(userLogin));
+            return "user-details";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "redirect:/error";
+        }
     }
 }

@@ -44,6 +44,12 @@ public abstract class GenericDaoImpl<E, PK extends Serializable> implements Gene
     }
 
     @Override
+    public void deleteByPk(PK pk) {
+        E e = (E) getSession().get(entityClass, pk);
+        getSession().delete(e);
+    }
+
+    @Override
     public List<E> findByCriteria(Criterion criterion) {
         return (List<E>) getSession().createCriteria(entityClass).add(criterion).list();
     }

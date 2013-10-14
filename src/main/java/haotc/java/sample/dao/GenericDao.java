@@ -10,4 +10,5 @@ public interface GenericDao<E, PK extends Serializable> {
     PK save(E e);
     void delete(E e);
     List<E> findByCriteria(Criterion criterion);
+    void deleteByPk(PK pk);
 }

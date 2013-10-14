@@ -4,25 +4,27 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "customer_login")
+@Table(name = "user_login")
 public class CustomerLoginEntity {
     private String login;
     private String password;
-    private String customerId;
+    private UserProfileEntity profile;
     private String email;
     private Date createdDate;
     private Date updatedDate;
+    private String role;
 
     public CustomerLoginEntity() {
     }
 
-    public CustomerLoginEntity(String login, String password, String customerId, String email, Date createdDate, Date updatedDate) {
+    public CustomerLoginEntity(String login, String password, UserProfileEntity profile, String email, String role, Date createdDate, Date updatedDate) {
         this.login = login;
         this.password = password;
         this.email = email;
-        this.customerId = customerId;
+        this.profile = profile;
         this.createdDate = createdDate;
         this.updatedDate = updatedDate;
+        this.role = role;
     }
 
     @Id
@@ -44,13 +46,14 @@ public class CustomerLoginEntity {
         this.password = password;
     }
 
-    @Column(name = "customer_id")
-    public String getCustomerId() {
-        return customerId;
+    @OneToOne
+    @JoinColumn(name = "profile_id")
+    public UserProfileEntity getProfile() {
+        return profile;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setProfile(UserProfileEntity profile) {
+        this.profile = profile;
     }
 
     @Column(name = "created_date")
@@ -78,5 +81,14 @@ public class CustomerLoginEntity {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Column(name = "role")
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }

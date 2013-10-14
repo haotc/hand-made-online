@@ -1,11 +1,9 @@
 package haotc.java.sample.controller;
 
-import haotc.java.sample.bo.CategoryBo;
-import haotc.java.sample.bo.CustomerLoginBo;
+import haotc.java.sample.bo.UserLoginBo;
 import haotc.java.sample.bo.CustomerRegisterBo;
 import haotc.java.sample.bo.ProductBo;
-import haotc.java.sample.common.Category;
-import haotc.java.sample.entity.CategoryEntity;
+import haotc.java.sample.common.CommonConstants;
 import haotc.java.sample.entity.ProductEntity;
 import haotc.java.sample.model.CartItemModel;
 import haotc.java.sample.model.CustomerRegisterForm;
@@ -33,11 +31,8 @@ public class HomeController {
     @Autowired
     private ProductBo productBo;
 
-//    @Autowired
-//    private CategoryBo categoryBo;
-
     @Autowired
-    private CustomerLoginBo customerLoginBo;
+    private UserLoginBo userLoginBo;
 
     @Autowired
     private CustomerRegisterBo customerRegisterBo;
@@ -47,28 +42,10 @@ public class HomeController {
         return "main";
     }
 
-//    @RequestMapping(value = "/category", method = RequestMethod.GET)
-//    public String initProductOnCategory(@RequestParam(required = true, value = "name") String categoryName, ModelMap model) {
-//        // if category is san-pham-noi-bat, return top sold products
-//        if (categoryName.equalsIgnoreCase(Category.HIGHT_LIGHT_PRODUCT)) {
-//            return "main";
-//        }
-//
-//        // get category by name then get its id
-//        CategoryEntity category = categoryBo.getCategoryByName(categoryName);
-//        if (category == null) {
-//            return "redirect:/";
-//        }
-//
-//        // set category id as model attribute
-//        model.addAttribute("categoryId", category.getId());
-//        return "main";
-//    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginForm") LoginForm loginForm, ModelMap model,
                         HttpServletRequest request) {
-        if (customerLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword())) {
+        if (userLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword(), CommonConstants.CUSTOMER_ROLE)) {
             request.getSession().setAttribute("loginUser", loginForm.getUsername());
             return "redirect:/";
         }
