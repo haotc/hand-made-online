@@ -3,6 +3,8 @@ package haotc.java.sample.dao;
 import haotc.java.sample.entity.CategoryEntity;
 import haotc.java.sample.entity.ProductEntity;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * User: haotc
@@ -12,4 +14,6 @@ import haotc.java.sample.entity.ProductEntity;
  */
 public interface CategoryDao extends GenericDao<CategoryEntity, Integer>  {
     CategoryEntity findByName(String name);
+
+    List<CategoryEntity> list();
 }

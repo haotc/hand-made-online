@@ -54,7 +54,7 @@ public class AdminController {
     @RequestMapping(value = "admin-login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginForm") LoginForm loginForm, ModelMap model,
                         HttpServletRequest request) {
-        if (userLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword(), CommonConstants.ADMIN_ROLE)) {
+        if (userLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword(), CommonConstants.ROLE_ADMIN)) {
             request.getSession().setAttribute("loginUser", loginForm.getUsername());
             return "redirect:index";
         }
@@ -65,10 +65,10 @@ public class AdminController {
 
     @RequestMapping(value = "user/list", method = RequestMethod.GET)
     public String getCustomerList(ModelMap model, HttpServletRequest request) {
-        if (request.getSession().getAttribute("loginUser") == null) {
-            model.addAttribute("loginForm", new LoginForm());
-            return "admin-login";
-        }
+//        if (request.getSession().getAttribute("loginUser") == null) {
+//            model.addAttribute("loginForm", new LoginForm());
+//            return "redirect:/admin-login";
+//        }
         List<CustomerLoginEntity> customerList = userLoginBo.getCustomerLoginList();
         model.addAttribute("userList", customerList);
         return "admin-user";
@@ -95,6 +95,51 @@ public class AdminController {
         } catch (Exception e) {
             e.printStackTrace();
             return "redirect:/error";
+        }
+    }
+
+    @RequestMapping(value = "user/new", method = RequestMethod.GET)
+    public String newUser(HttpServletRequest request, ModelMap model) {
+        return "user-new";
+    }
+
+    @RequestMapping(value = "create-user", method = RequestMethod.POST)
+    public String createUser(@RequestParam(required = true, value = "name") String loginName,
+                             @RequestParam(required = true, value = "password") String password,
+                             @RequestParam(required = true, value = "email") String email,
+                             @RequestParam(required = true, value = "role") String role,
+                             HttpServletRequest request, ModelMap model) {
+        try {
+            userLoginBo.save(loginName, email, password, role);
+            return "redirect:user/list";
+        } catch (Exception e) {
+            return "redirect:user/new";
+        }
+    }
+
+    @RequestMapping(value = "user/{us}/edit", method = RequestMethod.GET)
+    public String editUser(@PathVariable(value = "us") String loginName,
+                           ModelMap model) {
+        try {
+            CustomerLoginEntity user = userLoginBo.getUser(loginName);
+            model.addAttribute("user", user);
+            return "user-edit";
+        } catch (Exception e) {
+            return "error";
+        }
+    }
+
+    @RequestMapping(value = "update-user", method = RequestMethod.POST)
+    public String updateUser(@RequestParam(required = true, value = "name") String loginName,
+                             @RequestParam(required = true, value = "password") String password,
+                             @RequestParam(required = true, value = "email") String email,
+                             @RequestParam(required = true, value = "role") String role,
+                             HttpServletRequest request, ModelMap model) {
+        try {
+            userLoginBo.save(loginName, email, password, role);
+            return "redirect:user/list";
+        } catch (Exception e) {
+            return "error";
         }
     }
 }

@@ -18,42 +18,7 @@
 </head>
 <body>
 <div class="wrapper">
-    <div class="navigator">
-        <div class="navigator-wrapper">
-            <div class="top-left-logo"><a href="/" class="logo-ref">
-                <div class="logo">
-                    <div class="logo-img">
-                        <img src="${pageContext.request.contextPath}/assets/images/logo.png" />
-                    </div>
-                    <div class="logo-text">Handmade Online</div>
-                </div>
-            </a></div>
-            <div class="nav-list">
-                <div class="nav-list-content">
-                    <div class="cate-item">
-                        <div class="main-cate">
-                            <div class="cate-text general"><a href="user/list">Người dùng</a></div>
-                        </div>
-                    </div>
-                    <div class="cate-item">
-                        <div class="main-cate">
-                            <div class="cate-text general"><a href="product">Sản phẩm</a></div>
-                        </div>
-                    </div>
-                    <div class="cate-item">
-                        <div class="main-cate">
-                            <div class="cate-text general"><a href="product">Loại sản phẩm</a></div>
-                        </div>
-                    </div>
-                    <div class="cate-item">
-                        <div class="main-cate">
-                            <div class="cate-text general"><a href="order">Đơn hàng</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <%@ include file="common/admin-navigator.jsp" %>
     <div class="content">
         <div class="main-area">
             <div class="feature">

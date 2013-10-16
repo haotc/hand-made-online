@@ -8,6 +8,11 @@ package haotc.java.sample.common;
  * To change this template use File | Settings | File Templates.
  */
 public class CommonConstants {
-    public static final String CUSTOMER_ROLE = "CUSTOMER";
-    public static final String ADMIN_ROLE = "ADMIN";
+    public static final String ROLE_CUSTOMER = "customer";
+    public static final String ROLE_ADMIN = "admin";
+
+    public static final String ORDER_STATUS_UNCHECKED = "unchecked";
+    public static final String ORDER_STATUS_PROCESSING = "processing";
+    public static final String ORDER_STATUS_PENDING = "pending";
+    public static final String ORDER_STATUS_DELIVERED= "delivered";
 }

@@ -2,6 +2,8 @@ package haotc.java.sample.dao;
 
 import haotc.java.sample.entity.OrderEntity;
 
+import java.util.List;
+
 /**
  * Created by IntelliJ IDEA.
  * User: haotc
@@ -11,4 +13,5 @@ import haotc.java.sample.entity.OrderEntity;
  */
 public interface OrderDao extends GenericDao<OrderEntity, Integer> {
 
+    List<OrderEntity> list();
 }

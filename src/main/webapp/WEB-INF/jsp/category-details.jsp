@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Thông tin người dùng</title>
+    <title>Thông tin dòng sản phẩm</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/admin.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo.png" type="image/png">
@@ -23,44 +23,24 @@
     <div class="content">
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Thông tin người dùng</div>
+                <div class="feature-text">Thông tin dòng sản phẩm</div>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
                 <table class="list-table">
                     <tbody>
                     <tr>
-                        <td>Tên đăng nhập</td>
-                        <td>${user.login}</td>
+                        <td>Tên viết tắt</td>
+                        <td>${category.name}</td>
                     </tr>
                     <tr>
-                        <td>Mật khẩu</td>
-                        <td>${user.password}</td>
+                        <td>Mô tả</td>
+                        <td>${category.description}</td>
                     </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>${user.email}</td>
-                    </tr>
-                    <tr>
-                        <td>Role</td>
-                        <td>${user.role}</td>
-                    </tr>
-                    <%--<tr>
-                        <td>Họ và tên</td>
-                        <td>${user.profile.firstName} ${user.profile.lastName}</td>
-                    </tr>
-                    <tr>
-                        <td>Ngày sinh</td>
-                        <td>${user.profile.birthday}</td>
-                    </tr>
-                    <tr>
-                        <td>Số điện thoại</td>
-                        <td>${user.profile.phone}</td>
-                    </tr>--%>
                     <tr>
                         <td colspan="2" align="right">
-                            <a href="${pageContext.request.contextPath}/admin/user/${user.login}/edit"><button id="update-btn">Sửa</button></a>
-                            <a href="${pageContext.request.contextPath}/admin/user/delete?us=${user.login}"><button id="delete-btn">Xóa</button></a>
+                            <a href="${pageContext.request.contextPath}/admin/category/${category.id}/edit"><button id="update-btn">Sửa</button></a>
+                            <a href="${pageContext.request.contextPath}/admin/category/delete?id=${category.id}"><button id="delete-btn">Xóa</button></a>
                         </td>
                     </tr>
                     </tbody>

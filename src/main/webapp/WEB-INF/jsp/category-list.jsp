@@ -23,8 +23,8 @@
     <div class="content">
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Quản lí người dùng</div>
-                <a href="new"><button>Thêm người dùng</button></a>
+                <div class="feature-text">Quản lí nhóm hàng</div>
+                <a href="new"><button>Tạo mới</button></a>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
@@ -32,21 +32,16 @@
                 <table class="list-table">
                     <tbody>
                     <tr>
-                        <th>Tên đăng nhập</th>
-                        <th>Mật khẩu</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>Mô tả</th>
+                        <th>Tên viết tắt</th>
                         <th colspan="2">Thao tác</th>
                     </tr>
-
-                    <c:forEach var="user" items="${userList}">
+                    <c:forEach var="c" items="${categoryList}">
                         <tr>
-                            <td><a href="${user.login}">${user.login}</a></td>
-                            <td>${user.password}</td>
-                            <td>${user.email}</td>
-                            <td>${user.role}</td>
-                            <td><a href="${user.login}/edit"><button>Sửa</button></a></td>
-                            <td><a href="delete?us=${user.login}"><button>Xóa</button></a></td>
+                            <td><a href="${c.id}">${c.description}</a></td>
+                            <td>${c.name}</td>
+                            <td><a href="${c.id}/edit"><button>Sửa</button></a></td>
+                            <td><a href="delete?id=${c.id}"><button>Xóa</button></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

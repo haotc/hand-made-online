@@ -12,4 +12,8 @@ public interface UserLoginBo extends GenericBo {
     void remove(String userLogin);
 
     CustomerLoginEntity getUser(String userLogin);
+
+    boolean save(String username, String email, String password);
+
+    boolean save(String username, String email, String password, String role);
 }

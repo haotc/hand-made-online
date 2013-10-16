@@ -1,6 +1,6 @@
 CREATE DATABASE  IF NOT EXISTS `handmade_db` /*!40100 DEFAULT CHARACTER SET utf8 */;
 USE `handmade_db`;
--- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
+-- MySQL dump 10.13  Distrib 5.5.25, for Win32 (x86)
 --
 -- Host: localhost    Database: handmade_db
 -- ------------------------------------------------------
@@ -30,7 +30,7 @@ CREATE TABLE `category` (
   `description` varchar(250) DEFAULT NULL,
   `parent_category_id` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `category` (
 
 LOCK TABLES `category` WRITE;
 /*!40000 ALTER TABLE `category` DISABLE KEYS */;
-INSERT INTO `category` VALUES (1,'trang-tri-noi-that','Trang trí nội thất',NULL),(2,'trang-tri-su-kien','Trang trí sự kiện',NULL),(3,'qua-tang-do-choi','Quà tặng, đồ chơi',NULL),(4,'vat-lieu-hand-made','Vật liệu handmade',NULL),(5,'thiep','Thiệp','1'),(6,'dong_ho','Đồng hồ','2'),(7,'vong_tay','Vòng đeo tay','2'),(8,'tui_xach','Túi xách','2'),(9,'hoa_giay','Hoa giấy','1'),(10,'moc-khoa','Móc khóa','2'),(11,'trang-suc','Trang sức',NULL);
+INSERT INTO `category` VALUES (1,'trang-tri-noi-that','Trang trí nội thất',NULL),(2,'trang-tri-su-kien','Trang trí sự kiện',NULL),(3,'qua-tang-do-choi','Quà tặng, đồ chơi',NULL),(4,'vat-lieu-hand-made','Vật liệu handmade',NULL),(5,'thiep','Thiệp','1'),(6,'dong_ho','Đồng hồ','2'),(7,'vong_tay','Vòng đeo tay','2'),(8,'trang-suc','Trang sức','2'),(9,'hoa_giay','Hoa giấy','1'),(10,'moc-khoa','Móc khóa','2'),(11,'trang-suc','Trang sức',NULL);
 /*!40000 ALTER TABLE `category` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -65,7 +65,7 @@ CREATE TABLE `product` (
   `short_desc` varchar(250) DEFAULT NULL,
   `number_of_sold` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -74,8 +74,36 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (1,1,'Móc khoá hình quái vật','- Chất liệu: vải<br/>- Độ rộng cánh: 4.38cm<br/>- Hãng: EK Success<br/>- Lưu ý: Các bạn có thể tuỳ chỉnh màu sắc để có được sản phẩm mình mong muốn. Vì là hàng handmade theo yêu cầu nên hàng không có sẵn. ',10000,0,'http://www.lola.vn/data/201336/resize_612x410_mk169901.png','image desc','status',10,5,'Sản phẩm giảm giá',20),(2,1,'Nhà búp bê','Xem thêm tại FB : thế giới thu nhỏ của bạn',100000,0,'http://www.lola.vn/data/201331/9965534163799651463381093225494n2149.jpg','image desc','status',10,5,'Sản phẩm hot nhất hiện nay',123),(3,2,'Dụng cụ bấm giấy hình bươm bướm 4.38 cm','Vòng đeo chân detail desc',25000,0,'http://www.lola.vn/data/201335/marthastewart3in1butterflypunchproject12275.jpg','image desc','status',10,5,'Dành cho các bạn gay',32),(4,2,'Móc Khóa','Móc khóa handmade nhập từ Trung Quốc =.=',50000,0,'http://www.lola.vn/data/201339/photo13747621.jpg','image desc','status',10,5,'Sản phẩm chất lượng dành cho người thiếu tiền',45),(5,3,'Vòng tay handmade 14','Vòng tay handmade làm từ sợi len tổng hợp',70000,0,'http://www.lola.vn/data/201338/vt146379.jpg','image desc','status',10,5,'short desc',65),(6,3,'Gấu len đựng kẹo','Gấu len đựng kẹo',65000,0,'http://www.lola.vn/data/201337/resize_612x537_gungko20cm65199133776.jpg','image desc','status',10,5,'short desc',20),(7,4,'Cườm tam giác','Cườm tam giác',10000,0,'http://www.lola.vn/data/201339/dsc0133013879.jpg','image desc','status',10,5,'short desc',35),(8,4,'Cặp đôi hoàn hảo','Cặp đôi hoàn hảo',10000,0,'http://www.lola.vn/data/201339/resize_612x612_119109.jpg','image desc','status',10,5,'short desc',1),(9,5,'Móc khóa Apple','Móc khóa Apple',10000,0,'http://www.lola.vn/data/201339/resize_612x410_v0115k4612.jpg','image desc','status',10,5,'short desc',1),(10,5,'Ba chú gấu con','Ba chú gấu con',10000,0,'http://www.lola.vn/data/201339/resize_612x359_32244.jpg','image desc','status',10,5,'short desc',1),(11,6,'Bộ sưu tập cute 2','Bộ sưu tập cute 2',10000,0,'http://www.lola.vn/data//resize_612x494_128444.jpg','image desc','status',10,5,'Bộ sưu tập cute 2',23),(12,6,'Bát sứ ngộ nghĩnh','Bát sứ ngộ nghĩnh',25000,0,'http://www.lola.vn/data/201337/resize_612x460_555383415488261888555226309861n3002.jpg','image desc','status',10,5,'Bát sứ ngộ nghĩnh',13),(13,7,'Khung Hình Gấu','Khung hình gấu đốm đáng yêu. chất liệu: vải nỉ. kích thước: 10x10cm (không tính phần tai)',15000,0,'http://www.lola.vn/data/201335/resize_612x744_sp143459.jpg','image desc','status',10,5,'short desc',30),(14,7,'Vòng đeo tay','Vòng đeo tay detail desc',10000,0,'https://lh3.googleusercontent.com/9x_Zdxi1WFlQuX9QYROl0DHsJ8R0KENPgIgHHeDMR3w2i6aX6HsH5e73FFKsn0-oETRPoe-__w=s220-h140-e365-rw','image desc','status',10,5,'short desc',1);
+INSERT INTO `product` VALUES (1,1,'Móc khoá hình quái vật','- Chất liệu: vải<br/>- Độ rộng cánh: 4.38cm<br/>- Hãng: EK Success<br/>- Lưu ý: Các bạn có thể tuỳ chỉnh màu sắc để có được sản phẩm mình mong muốn. Vì là hàng handmade theo yêu cầu nên hàng không có sẵn. ',10000,0,'http://www.lola.vn/data/201336/resize_612x410_mk169901.png','image desc','status',10,5,'Sản phẩm giảm giá',20),(2,1,'Nhà búp bê','Xem thêm tại FB : thế giới thu nhỏ của bạn',100000,0,'http://www.lola.vn/data/201331/9965534163799651463381093225494n2149.jpg','image desc','status',10,5,'Sản phẩm hot nhất hiện nay',123),(3,2,'Dụng cụ bấm giấy hình bươm bướm 4.38 cm','Vòng đeo chân detail desc',25000,0,'http://www.lola.vn/data/201335/marthastewart3in1butterflypunchproject12275.jpg','image desc','status',10,5,'Dành cho các bạn gay',32),(4,2,'Móc Khóa','Móc khóa handmade nhập từ Trung Quốc =.=',50000,0,'http://www.lola.vn/data/201339/photo13747621.jpg','image desc','status',10,5,'Sản phẩm chất lượng dành cho người thiếu tiền',45),(5,3,'Vòng tay handmade 14','Vòng tay handmade làm từ sợi len tổng hợp',70000,0,'http://www.lola.vn/data/201338/vt146379.jpg','image desc','status',10,5,'short desc',65),(6,3,'Gấu len đựng kẹo','Gấu len đựng kẹo',65000,0,'http://www.lola.vn/data/201337/resize_612x537_gungko20cm65199133776.jpg','image desc','status',10,5,'short desc',20),(7,4,'Cườm tam giác','Cườm tam giác',10000,0,'http://www.lola.vn/data/201339/dsc0133013879.jpg','image desc','status',10,5,'short desc',35),(8,4,'Cặp đôi hoàn hảo','Cặp đôi hoàn hảo',10000,0,'http://www.lola.vn/data/201339/resize_612x612_119109.jpg','image desc','status',10,5,'short desc',1),(9,5,'Móc khóa Apple','Móc khóa Apple',10000,0,'http://www.lola.vn/data/201339/resize_612x410_v0115k4612.jpg','image desc','status',10,5,'short desc',1),(10,5,'Ba chú gấu con','Ba chú gấu con',10000,0,'http://www.lola.vn/data/201339/resize_612x359_32244.jpg','image desc','status',10,5,'short desc',1),(11,6,'Bộ sưu tập cute 2','Bộ sưu tập cute 2',10000,0,'http://www.lola.vn/data//resize_612x494_128444.jpg','image desc','status',10,5,'Bộ sưu tập cute 2',23),(12,6,'Bát sứ ngộ nghĩnh','Bát sứ ngộ nghĩnh',25000,0,'http://www.lola.vn/data/201337/resize_612x460_555383415488261888555226309861n3002.jpg','image desc','status',10,5,'Bát sứ ngộ nghĩnh',13),(13,7,'Khung Hình Gấu','Khung hình gấu đốm đáng yêu. chất liệu: vải nỉ. kích thước: 10x10cm (không tính phần tai)',15000,0,'http://www.lola.vn/data/201335/resize_612x744_sp143459.jpg','image desc','status',10,5,'short desc',30),(14,7,'Vòng đeo tay','Vòng đeo tay detail desc',10000,0,'https://lh3.googleusercontent.com/9x_Zdxi1WFlQuX9QYROl0DHsJ8R0KENPgIgHHeDMR3w2i6aX6HsH5e73FFKsn0-oETRPoe-__w=s220-h140-e365-rw','image desc','status',10,5,'short desc',1),(15,8,'Vòng da đơn giản','Vòng da đơn giản',100000,0,'http://www.lola.vn/data/201335/resize_612x460_hnh09216486.jpg',NULL,NULL,25,5,'Vòng da đơn giản',20),(16,8,'Móc khóa','Móc khóa',5000,0,'http://www.lola.vn/data/201335/resize_612x460_hnh08080011429.jpg',NULL,NULL,20,15,'Móc khóa',5);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `customer_order`
+--
+
+DROP TABLE IF EXISTS `customer_order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `customer_order` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `customer_login` varchar(100) DEFAULT NULL,
+  `shipping_id` int(11) DEFAULT NULL,
+  `billing_id` int(11) DEFAULT NULL,
+  `created_date` datetime DEFAULT NULL,
+  `status` varchar(50) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `customer_order`
+--
+
+LOCK TABLES `customer_order` WRITE;
+/*!40000 ALTER TABLE `customer_order` DISABLE KEYS */;
+INSERT INTO `customer_order` VALUES (3,'haotc1',2,NULL,'2013-10-16 10:09:16','unchecked'),(5,'haotc1',4,NULL,'2013-10-16 11:23:10','unchecked'),(6,'haotc1',5,NULL,'2013-10-16 11:30:26','unchecked');
+/*!40000 ALTER TABLE `customer_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -121,7 +149,7 @@ CREATE TABLE `order_item` (
   `unit_price` decimal(10,0) DEFAULT NULL,
   `total` decimal(10,0) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -130,6 +158,7 @@ CREATE TABLE `order_item` (
 
 LOCK TABLES `order_item` WRITE;
 /*!40000 ALTER TABLE `order_item` DISABLE KEYS */;
+INSERT INTO `order_item` VALUES (1,5,2,1,100000,100000),(2,6,5,3,70000,210000);
 /*!40000 ALTER TABLE `order_item` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +185,7 @@ CREATE TABLE `user_login` (
 
 LOCK TABLES `user_login` WRITE;
 /*!40000 ALTER TABLE `user_login` DISABLE KEYS */;
-INSERT INTO `user_login` VALUES ('haotc','123456','haotcse60777@yahoo.com',1,'admin'),('haotc1','123456','haotcse60777@yahoo.com',2,'customer'),('haotc3','123456','hao@yahoo.com',NULL,'CUSTOMER');
+INSERT INTO `user_login` VALUES ('a','a','aryannguyen1992@gmail.com',NULL,'admin'),('haotc','123456','haotcse60777@yahoo.com',1,'admin'),('haotc1','123456','haotcse60777@yahoo.com',2,'customer'),('sadfsdaf','123456789','haotc@c.cc',NULL,'customer');
 /*!40000 ALTER TABLE `user_login` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -174,7 +203,7 @@ CREATE TABLE `shipping_address` (
   `phone` varchar(45) DEFAULT NULL,
   `address` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -183,34 +212,8 @@ CREATE TABLE `shipping_address` (
 
 LOCK TABLES `shipping_address` WRITE;
 /*!40000 ALTER TABLE `shipping_address` DISABLE KEYS */;
+INSERT INTO `shipping_address` VALUES (1,'a','a@a.a','a','a'),(2,'a','a@a.a','a','a'),(4,'a','a@a.a','a','a'),(5,'b','b@b.b','b','b');
 /*!40000 ALTER TABLE `shipping_address` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `order`
---
-
-DROP TABLE IF EXISTS `order`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `order` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_id` varchar(100) DEFAULT NULL,
-  `shipping_id` int(11) DEFAULT NULL,
-  `billing_id` int(11) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `status` varchar(50) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `order`
---
-
-LOCK TABLES `order` WRITE;
-/*!40000 ALTER TABLE `order` DISABLE KEYS */;
-/*!40000 ALTER TABLE `order` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -222,4 +225,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-16  8:23:48
+-- Dump completed on 2013-10-16 17:31:37

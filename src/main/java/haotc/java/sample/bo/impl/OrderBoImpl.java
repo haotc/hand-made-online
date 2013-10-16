@@ -2,6 +2,7 @@ package haotc.java.sample.bo.impl;
 
 import haotc.java.sample.bo.OrderBo;
 import haotc.java.sample.dao.OrderDao;
+import haotc.java.sample.dao.OrderItemDao;
 import haotc.java.sample.dao.ShippingAddressDao;
 import haotc.java.sample.entity.OrderEntity;
 import haotc.java.sample.entity.OrderItemEntity;
@@ -23,8 +24,10 @@ public class OrderBoImpl extends GenericBoImpl implements OrderBo {
     private OrderDao orderDao;
 
     @Autowired
-    private ShippingAddressDao shippingAddressDao;
+    private OrderItemDao orderItemDao;
 
+    @Autowired
+    private ShippingAddressDao shippingAddressDao;
 
     @Override
     public void update(OrderEntity order) {
@@ -33,7 +36,7 @@ public class OrderBoImpl extends GenericBoImpl implements OrderBo {
 
     @Override
     public List<OrderEntity> getOrderList() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return orderDao.list();
     }
 
     @Override
@@ -51,16 +54,15 @@ public class OrderBoImpl extends GenericBoImpl implements OrderBo {
     public void create(List<CartItemModel> cart, String userLogin, String name, String mail, String phone, String address) {
         List<OrderItemEntity> orderItemList = new ArrayList<OrderItemEntity>();
         for (CartItemModel item : cart) {
-            orderItemList.add(new OrderItemEntity(item.getProductId(), item.getQuantity(), item.getQuantity() * item.getUnitPrice(), item.getUnitPrice()));
+            OrderItemEntity orderItem = new OrderItemEntity(item.getProductId(), item.getQuantity(), item.getQuantity() * item.getUnitPrice(), item.getUnitPrice());
+            orderItemDao.save(orderItem);
+            orderItemList.add(orderItem);
         }
 
         ShippingAddressEntity shipping = new ShippingAddressEntity(name, mail, phone, address);
-//        int shippingId = shippingAddressDao.save(shipping);
-        OrderEntity order = new OrderEntity(userLogin, 1, 1, new Date(), "unchecked");
-//        order.setCustomerLogin(userLogin);
-//        order.setOrderItems(orderItemList);
-//        order.setShippingId(shippingId);
+        int shippingId = shippingAddressDao.save(shipping);
 
+        OrderEntity order = new OrderEntity(userLogin, orderItemList, shippingId, null, "unchecked", new Date());
         orderDao.save(order);
     }
 }

@@ -30,9 +30,10 @@
                 <div class="feature-text">Địa chỉ giao hàng</div>
                 <div class="clear"></div>
             </div>
-            <form:form id="shipping-address-form" action="fill-shipping-address" method="post">
-                <div id="item-container">
-                    <div id="shipping-ct">
+            <div id="item-container">
+                <form:form id="shipping-address-form" action="fill-shipping-address" method="post">
+
+                    <div id="input-form">
                         <div class="text-field">
                             <label>Tên người nhận</label>
                             <input id="recipientName" name="recipientName" type="text"/>
@@ -47,14 +48,15 @@
                         </div>
                         <div class="text-field address">
                             <label style="vertical-align: top;margin-top: 15px;">Địa chỉ giao hàng</label>
-                            <textarea id="recipientAddress" name="recipientAddress" rows="3" style="font-family: arial, sans-serif;font-size: 14px;"></textarea>
+                            <textarea id="recipientAddress" name="recipientAddress" rows="3"
+                                      style="font-family: arial, sans-serif;font-size: 14px;"></textarea>
                         </div>
                         <div class="btn-fld">
-                            <button id="reg-button" type="submit">Hoàn tất »</button>
+                            <button id="submit-button" type="submit">Hoàn tất »</button>
                         </div>
                     </div>
-                </div>
-            </form:form>
+                </form:form>
+            </div>
         </div>
     </div>
 </div>

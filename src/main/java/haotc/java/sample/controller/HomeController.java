@@ -1,6 +1,5 @@
 package haotc.java.sample.controller;
 
-import haotc.java.sample.bo.CustomerRegisterBo;
 import haotc.java.sample.bo.OrderBo;
 import haotc.java.sample.bo.ProductBo;
 import haotc.java.sample.bo.UserLoginBo;
@@ -36,9 +35,6 @@ public class HomeController {
     private UserLoginBo userLoginBo;
 
     @Autowired
-    private CustomerRegisterBo customerRegisterBo;
-
-    @Autowired
     private OrderBo orderBo;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -49,7 +45,7 @@ public class HomeController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public String login(@ModelAttribute("loginForm") LoginForm loginForm, ModelMap model,
                         HttpServletRequest request) {
-        if (userLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword(), CommonConstants.CUSTOMER_ROLE)) {
+        if (userLoginBo.checkLogin(loginForm.getUsername(), loginForm.getPassword(), CommonConstants.ROLE_CUSTOMER)) {
             request.getSession().setAttribute("loginUser", loginForm.getUsername());
             return "redirect:/";
         }
@@ -88,7 +84,7 @@ public class HomeController {
                                   @RequestParam(required = true, value = "regPassword") String regPassword,
                                   @RequestParam(required = true, value = "regRepassword") String regRepassword,
                                   HttpServletRequest request) {
-        customerRegisterBo.register(regUsername, regEmail, regPassword);
+        userLoginBo.save(regUsername, regEmail, regPassword);
 
         request.getSession().setAttribute("loginUser", regUsername);
         return "redirect:/";

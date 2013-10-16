@@ -46,6 +46,7 @@ public class OrderItemEntity {
         this.orderId = orderId;
     }
 
+    @Column(name = "product_id")
     public int getProductId() {
         return productId;
     }
@@ -54,6 +55,7 @@ public class OrderItemEntity {
         this.productId = productId;
     }
 
+    @Column(name = "quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -62,6 +64,7 @@ public class OrderItemEntity {
         this.quantity = quantity;
     }
 
+    @Column(name = "unit_price")
     public double getUnitPrice() {
         return unitPrice;
     }
@@ -70,6 +73,7 @@ public class OrderItemEntity {
         this.unitPrice = unitPrice;
     }
 
+    @Column(name = "total")
     public double getTotal() {
         return total;
     }

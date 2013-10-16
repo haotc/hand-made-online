@@ -1,9 +1,5 @@
 package haotc.java.sample.entity;
 
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-import org.hibernate.annotations.Persister;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -16,20 +12,23 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Entity
-@Table(name = "order")
+@Table(name = "customer_order")
 public class OrderEntity {
-    private int id;
+    private Integer id;
     private String customerLogin;
     private Integer shippingId;
-//    List<OrderItemEntity> orderItems;
+    List<OrderItemEntity> orderItems;
     private Integer billingId;
     private Date createdDate;
     private String status;
 
-    public OrderEntity(String customerLogin, Integer shippingId, Integer billingId, Date createdDate, String status) {
+    public OrderEntity() {
+    }
+
+    public OrderEntity(String customerLogin, List<OrderItemEntity> orderItems, Integer shippingId, Integer billingId, String status, Date createdDate) {
         this.customerLogin = customerLogin;
         this.shippingId = shippingId;
-//        this.orderItems = orderItems;
+        this.orderItems = orderItems;
         this.billingId = billingId;
         this.createdDate = createdDate;
         this.status = status;
@@ -38,15 +37,15 @@ public class OrderEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    @Column(name = "customer_id")
+    @Column(name = "customer_login")
     public String getCustomerLogin() {
         return customerLogin;
     }
@@ -64,15 +63,15 @@ public class OrderEntity {
         this.shippingId = shippingId;
     }
 
-//    @OneToMany
-//    @JoinColumn(name = "order_id")
-//    public List<OrderItemEntity> getOrderItems() {
-//        return orderItems;
-//    }
-//
-//    public void setOrderItems(List<OrderItemEntity> orderItems) {
-//        this.orderItems = orderItems;
-//    }
+    @OneToMany
+    @JoinColumn(name = "order_id")
+    public List<OrderItemEntity> getOrderItems() {
+        return orderItems;
+    }
+
+    public void setOrderItems(List<OrderItemEntity> orderItems) {
+        this.orderItems = orderItems;
+    }
 
     @Column(name = "billing_id")
     public Integer getBillingId() {

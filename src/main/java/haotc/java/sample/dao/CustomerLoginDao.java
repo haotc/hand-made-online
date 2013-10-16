@@ -7,7 +7,5 @@ import java.util.List;
 public interface CustomerLoginDao extends GenericDao<CustomerLoginEntity, String> {
     boolean checkLogin(String username, String password, String role);
 
-    String saveCustomerLogin(String username, String email, String password);
-
     List<CustomerLoginEntity> getList();
 }

@@ -22,4 +22,9 @@ public class CategoryDaoImpl extends GenericDaoImpl<CategoryEntity, Integer>
         crit.add(Restrictions.like("name", name));
         return (CategoryEntity) crit.uniqueResult();
     }
+
+    @Override
+    public List<CategoryEntity> list() {
+        return getSession().createCriteria(CategoryEntity.class).list();
+    }
 }

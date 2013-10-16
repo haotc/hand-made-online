@@ -1,4 +1,4 @@
-.tbl-cart {
+.list-table {
     margin: 25px;
     border-collapse: collapse;
     border: 1px solid #DCDCDC;
@@ -18,20 +18,20 @@ table tbody {
     background: transparent;
 }
 
-.tbl-cart th, td {
+.list-table th, td {
     padding: 10px 15px;
     border: 1px solid #DCDCDC;
     vertical-align: middle;
     font-size: 13px;
 }
 
-.tbl-cart td .product-img {
+.list-table td .product-img {
     display: inline-block;
     float: left;
     padding-top: 8px;
 }
 
-.tbl-cart td a {
+.list-table td a {
     display: inline-block;
     float: left;
     padding-top: 8px;
@@ -41,20 +41,20 @@ table tbody {
     margin-left: 5px;
 }
 
-.tbl-cart td .icon-del {
+.list-table td .icon-del {
     background: url(../images/icon-order-del.png) top left no-repeat;
     width: 17px;
     height: 19px;
     display: block;
 }
 
-.tbl-cart td .price {
+.list-table td .price {
     text-align: center;
     font-size: 18px;
     color: #F60;
 }
 
-.tbl-cart td .price i {
+.list-table td .price i {
     font-size: 15px;
     font-style: normal;
     position: relative;
