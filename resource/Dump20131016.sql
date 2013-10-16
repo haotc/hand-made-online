@@ -79,83 +79,31 @@ INSERT INTO `product` VALUES (1,1,'Móc khoá hình quái vật','- Chất liệ
 UNLOCK TABLES;
 
 --
--- Table structure for table `admin_login`
+-- Table structure for table `user_profile`
 --
 
-DROP TABLE IF EXISTS `admin_login`;
+DROP TABLE IF EXISTS `user_profile`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `admin_login` (
-  `login` varchar(45) NOT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
-  `roleId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `admin_login`
---
-
-LOCK TABLES `admin_login` WRITE;
-/*!40000 ALTER TABLE `admin_login` DISABLE KEYS */;
-INSERT INTO `admin_login` VALUES ('haotc','123456','tangconghao1992@gmail.com',NULL),('haotc1','123456','tangconghao1992@gmail.com',NULL);
-/*!40000 ALTER TABLE `admin_login` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `customer_login`
---
-
-DROP TABLE IF EXISTS `customer_login`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `customer_login` (
-  `login` varchar(45) NOT NULL,
-  `password` varchar(45) DEFAULT NULL,
-  `customer_id` int(11) DEFAULT NULL,
-  `email` varchar(150) DEFAULT NULL,
-  `created_date` datetime DEFAULT NULL,
-  `updated_date` datetime DEFAULT NULL,
-  PRIMARY KEY (`login`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `customer_login`
---
-
-LOCK TABLES `customer_login` WRITE;
-/*!40000 ALTER TABLE `customer_login` DISABLE KEYS */;
-INSERT INTO `customer_login` VALUES ('haotc','123456',NULL,NULL,NULL,NULL);
-/*!40000 ALTER TABLE `customer_login` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `shipping_address`
---
-
-DROP TABLE IF EXISTS `shipping_address`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `shipping_address` (
+CREATE TABLE `user_profile` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(150) DEFAULT NULL,
-  `email` varchar(45) DEFAULT NULL,
+  `first_name` varchar(45) DEFAULT NULL,
+  `last_name` varchar(45) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
-  `address` varchar(250) DEFAULT NULL,
+  `gender` varchar(45) DEFAULT NULL,
+  `birthday` date DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `shipping_address`
+-- Dumping data for table `user_profile`
 --
 
-LOCK TABLES `shipping_address` WRITE;
-/*!40000 ALTER TABLE `shipping_address` DISABLE KEYS */;
-/*!40000 ALTER TABLE `shipping_address` ENABLE KEYS */;
+LOCK TABLES `user_profile` WRITE;
+/*!40000 ALTER TABLE `user_profile` DISABLE KEYS */;
+INSERT INTO `user_profile` VALUES (1,'Tăng','Công Hảo','0123456789','male','1992-01-16'),(2,'Đại','Ka Hảo','0123456789','male','1992-01-16');
+/*!40000 ALTER TABLE `user_profile` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -186,31 +134,56 @@ LOCK TABLES `order_item` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `customer_info`
+-- Table structure for table `user_login`
 --
 
-DROP TABLE IF EXISTS `customer_info`;
+DROP TABLE IF EXISTS `user_login`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `customer_info` (
+CREATE TABLE `user_login` (
+  `login` varchar(45) NOT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL,
+  `profile_id` int(11) DEFAULT NULL,
+  `role` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`login`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_login`
+--
+
+LOCK TABLES `user_login` WRITE;
+/*!40000 ALTER TABLE `user_login` DISABLE KEYS */;
+INSERT INTO `user_login` VALUES ('haotc','123456','haotcse60777@yahoo.com',1,'admin'),('haotc1','123456','haotcse60777@yahoo.com',2,'customer'),('haotc3','123456','hao@yahoo.com',NULL,'CUSTOMER');
+/*!40000 ALTER TABLE `user_login` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `shipping_address`
+--
+
+DROP TABLE IF EXISTS `shipping_address`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `shipping_address` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `firstname` varchar(45) NOT NULL,
-  `lastname` varchar(45) NOT NULL,
+  `name` varchar(150) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
   `phone` varchar(45) DEFAULT NULL,
-  `gender` varchar(45) DEFAULT NULL,
-  `birthday` date DEFAULT NULL,
+  `address` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `customer_info`
+-- Dumping data for table `shipping_address`
 --
 
-LOCK TABLES `customer_info` WRITE;
-/*!40000 ALTER TABLE `customer_info` DISABLE KEYS */;
-/*!40000 ALTER TABLE `customer_info` ENABLE KEYS */;
+LOCK TABLES `shipping_address` WRITE;
+/*!40000 ALTER TABLE `shipping_address` DISABLE KEYS */;
+/*!40000 ALTER TABLE `shipping_address` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -222,7 +195,7 @@ DROP TABLE IF EXISTS `order`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `customer_id` int(11) DEFAULT NULL,
+  `customer_id` varchar(100) DEFAULT NULL,
   `shipping_id` int(11) DEFAULT NULL,
   `billing_id` int(11) DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
@@ -249,4 +222,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-10-14  9:12:29
+-- Dump completed on 2013-10-16  8:23:48

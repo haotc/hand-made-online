@@ -1,8 +1,9 @@
 package haotc.java.sample.controller;
 
-import haotc.java.sample.bo.UserLoginBo;
 import haotc.java.sample.bo.CustomerRegisterBo;
+import haotc.java.sample.bo.OrderBo;
 import haotc.java.sample.bo.ProductBo;
+import haotc.java.sample.bo.UserLoginBo;
 import haotc.java.sample.common.CommonConstants;
 import haotc.java.sample.entity.ProductEntity;
 import haotc.java.sample.model.CartItemModel;
@@ -36,6 +37,9 @@ public class HomeController {
 
     @Autowired
     private CustomerRegisterBo customerRegisterBo;
+
+    @Autowired
+    private OrderBo orderBo;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String initDefaultProduct() {
@@ -112,9 +116,9 @@ public class HomeController {
     public String addProductToCart(@RequestParam(required = true, value = "productId") int productId,
                                    ModelMap model, HttpServletRequest request) {
         // get cart from session
-        List<CartItemModel> carts = (List<CartItemModel>) request.getSession().getAttribute("cart");
-        if (carts == null) {
-            carts = new ArrayList<CartItemModel>();
+        List<CartItemModel> cart = (List<CartItemModel>) request.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new ArrayList<CartItemModel>();
         }
 
         // find product info by id
@@ -122,7 +126,7 @@ public class HomeController {
 
         // add product to cart, if it has been exist in cart, increase its quantity, else add new to cart
         Boolean existed = false;
-        for (CartItemModel cartItemModel : carts) {
+        for (CartItemModel cartItemModel : cart) {
             if (cartItemModel.getProductId() == productId) {
                 cartItemModel.setQuantity(cartItemModel.getQuantity() + 1);
                 existed = true;
@@ -130,33 +134,46 @@ public class HomeController {
             }
         }
         if (!existed) {
-            carts.add(new CartItemModel(productId, p.getName(), 1, p.getUnitPrice(), p.getImageUrl()));
+            cart.add(new CartItemModel(productId, p.getName(), 1, p.getUnitPrice(), p.getImageUrl()));
         }
 
         // go to cart page
-        request.getSession().setAttribute("cart", carts);
+        request.getSession().setAttribute("cart", cart);
         return "redirect:/cart";
+    }
+
+    @RequestMapping(value = "/change-cart", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    String changeCart(@RequestParam(required = true, value = "index") int index,
+                      @RequestParam(required = true, value = "quantity") int quantity,
+                      HttpServletRequest request) {
+        List<CartItemModel> cart = (List<CartItemModel>) request.getSession().getAttribute("cart");
+        cart.get(index - 1).setQuantity(quantity);
+        request.getSession().setAttribute("cart", cart);
+
+        return "success";
     }
 
     @RequestMapping(value = "/delete-from-cart", method = RequestMethod.GET)
     public String removeProductFromCart(@RequestParam(required = true, value = "productId") int productId,
                                         ModelMap model, HttpServletRequest request) {
         // get cart from session
-        List<CartItemModel> carts = (List<CartItemModel>) request.getSession().getAttribute("cart");
-        if (carts == null) {
-            carts = new ArrayList<CartItemModel>();
+        List<CartItemModel> cart = (List<CartItemModel>) request.getSession().getAttribute("cart");
+        if (cart == null) {
+            cart = new ArrayList<CartItemModel>();
         }
 
         // if it has been exist in cart, remove it
-        for (CartItemModel cartItemModel : carts) {
+        for (CartItemModel cartItemModel : cart) {
             if (cartItemModel.getProductId() == productId) {
-                carts.remove(cartItemModel);
+                cart.remove(cartItemModel);
                 break;
             }
         }
 
         // go to cart page
-        request.getSession().setAttribute("cart", carts);
+        request.getSession().setAttribute("cart", cart);
         return "redirect:/cart";
     }
 
@@ -174,10 +191,18 @@ public class HomeController {
     }
 
     @RequestMapping(value = "/fill-shipping-address", method = RequestMethod.POST)
-    public String processShippingAddress(ModelMap model, HttpServletRequest request) {
-        if (request.getSession().getAttribute("loginUser") == null) {
-            return "redirect:/login";
-        }
-        return "shipping-address";
+    public String processShippingAddress(@RequestParam(required = true, value = "recipientName") String name,
+                                         @RequestParam(required = true, value = "recipientMail") String mail,
+                                         @RequestParam(required = true, value = "recipientPhone") String phone,
+                                         @RequestParam(required = true, value = "recipientAddress") String address,
+                                         ModelMap model, HttpServletRequest request) {
+        // add items from cart to order then save order
+        List<CartItemModel> cart = (List<CartItemModel>) request.getSession().getAttribute("cart");
+        orderBo.create(cart, (String) request.getSession().getAttribute("loginUser"), name, mail, phone, address);
+
+        // clear cart session
+        request.getSession().removeAttribute("cart");
+
+        return "checkout-complete";
     }
 }

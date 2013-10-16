@@ -45,14 +45,16 @@
                             <table class="tbl-cart">
                                 <tbody>
                                 <tr>
+                                    <th width="5%">STT</th>
                                     <th width="50%">Sản phẩm</th>
                                     <th width="15%">Giá tiền</th>
                                     <th width="15%">Số lượng</th>
-                                    <th width="20%">Thành tiền</th>
+                                    <th width="15%">Thành tiền</th>
                                 </tr>
                                 <c:set var="total" value="${0}"/>
-                                <c:forEach items="${sessionScope.cart}" var="item">
+                                <c:forEach items="${sessionScope.cart}" var="item" varStatus="index">
                                     <tr>
+                                        <td type="hidden">${index.count}</td>
                                         <td>
                                             <img class="product-img" width="70" height="70"
                                                  src=${item.imageUrl} alt=${item.productName} />
@@ -72,8 +74,7 @@
                                     <c:set var="total" value="${total + item.quantity * item.unitPrice}"/>
                                 </c:forEach>
                                 <tr>
-                                    <td></td>
-                                    <td colspan="2"><h2 style="text-align: center">Tổng cộng:</h2></td>
+                                    <td colspan="4"><h2 style="text-align: center">Tổng cộng:</h2></td>
                                     <td><p class="total-cost price"><span>${total}</span><i>đ</i></p></td>
                                 </tr>
                                 </tbody>

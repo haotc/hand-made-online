@@ -47,7 +47,7 @@
                         </div>
                         <div class="text-field address">
                             <label style="vertical-align: top;margin-top: 15px;">Địa chỉ giao hàng</label>
-                            <textarea id="recipientAddress" name="recipientAddress" rows="3"></textarea>
+                            <textarea id="recipientAddress" name="recipientAddress" rows="3" style="font-family: arial, sans-serif;font-size: 14px;"></textarea>
                         </div>
                         <div class="btn-fld">
                             <button id="reg-button" type="submit">Hoàn tất »</button>

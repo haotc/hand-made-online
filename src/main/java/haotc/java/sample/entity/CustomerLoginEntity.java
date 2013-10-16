@@ -10,20 +10,16 @@ public class CustomerLoginEntity {
     private String password;
     private UserProfileEntity profile;
     private String email;
-    private Date createdDate;
-    private Date updatedDate;
     private String role;
 
     public CustomerLoginEntity() {
     }
 
-    public CustomerLoginEntity(String login, String password, UserProfileEntity profile, String email, String role, Date createdDate, Date updatedDate) {
+    public CustomerLoginEntity(String login, String password, UserProfileEntity profile, String email, String role) {
         this.login = login;
         this.password = password;
         this.email = email;
         this.profile = profile;
-        this.createdDate = createdDate;
-        this.updatedDate = updatedDate;
         this.role = role;
     }
 
@@ -54,24 +50,6 @@ public class CustomerLoginEntity {
 
     public void setProfile(UserProfileEntity profile) {
         this.profile = profile;
-    }
-
-    @Column(name = "created_date")
-    public Date getCreatedDate() {
-        return createdDate;
-    }
-
-    public void setCreatedDate(Date createdDate) {
-        this.createdDate = createdDate;
-    }
-
-    @Column(name = "updated_date")
-    public Date getUpdatedDate() {
-        return updatedDate;
-    }
-
-    public void setUpdatedDate(Date updatedDate) {
-        this.updatedDate = updatedDate;
     }
 
     @Column(name = "email")

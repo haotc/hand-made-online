@@ -26,7 +26,7 @@ public class CustomerLoginDaoImpl extends GenericDaoImpl<CustomerLoginEntity, St
 
     @Override
     public String saveCustomerLogin(String username, String email, String password) {
-        return save(new CustomerLoginEntity(username, password, null, email, "CUSTOMER", new Date(), new Date()));
+        return save(new CustomerLoginEntity(username, password, null, email, "CUSTOMER"));
     }
 
     @Override

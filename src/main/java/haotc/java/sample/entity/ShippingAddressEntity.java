@@ -1,8 +1,6 @@
 package haotc.java.sample.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import java.security.PrivateKey;
+import javax.persistence.*;
 
 /**
  * Created by IntelliJ IDEA.
@@ -12,61 +10,66 @@ import java.security.PrivateKey;
  * To change this template use File | Settings | File Templates.
  */
 
-//@Entity
-//@Table(name = "shipping_address")
+@Entity
+@Table(name = "shipping_address")
 public class ShippingAddressEntity {
-    private String id;
-    private String orderId;
-    private String recipientName;
-    private String recipientMail;
-    private String recipientPhone;
-    private String recipientAddress;
+    private Integer id;
+    private String name;
+    private String mail;
+    private String phone;
+    private String address;
 
-    public String getId() {
+    public ShippingAddressEntity(String name, String mail, String phone, String address) {
+        this.name = name;
+        this.mail = mail;
+        this.phone = phone;
+        this.address = address;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", unique = true, nullable = false)
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getOrderId() {
-        return orderId;
+    @Column(name = "name")
+    public String getName() {
+        return name;
     }
 
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getRecipientName() {
-        return recipientName;
+    @Column(name = "email")
+    public String getMail() {
+        return mail;
     }
 
-    public void setRecipientName(String recipientName) {
-        this.recipientName = recipientName;
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
-    public String getRecipientMail() {
-        return recipientMail;
+    @Column(name = "phone")
+    public String getPhone() {
+        return phone;
     }
 
-    public void setRecipientMail(String recipientMail) {
-        this.recipientMail = recipientMail;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public String getRecipientPhone() {
-        return recipientPhone;
+    @Column(name = "address")
+    public String getAddress() {
+        return address;
     }
 
-    public void setRecipientPhone(String recipientPhone) {
-        this.recipientPhone = recipientPhone;
-    }
-
-    public String getRecipientAddress() {
-        return recipientAddress;
-    }
-
-    public void setRecipientAddress(String recipientAddress) {
-        this.recipientAddress = recipientAddress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }
