@@ -218,4 +218,9 @@ public class HomeController {
 
         return "checkout-complete";
     }
+
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public String search() {
+        return "search";
+    }
 }

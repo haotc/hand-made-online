@@ -53,16 +53,19 @@ public class OrderBoImpl extends GenericBoImpl implements OrderBo {
     @Transactional(readOnly = false)
     public void create(List<CartItemModel> cart, String userLogin, String name, String mail, String phone, String address) {
         List<OrderItemEntity> orderItemList = new ArrayList<OrderItemEntity>();
+        int totalMoney = 0;
         for (CartItemModel item : cart) {
             OrderItemEntity orderItem = new OrderItemEntity(item.getProductId(), item.getQuantity(), item.getQuantity() * item.getUnitPrice(), item.getUnitPrice());
             orderItemDao.save(orderItem);
             orderItemList.add(orderItem);
+            totalMoney += item.getQuantity() * item.getUnitPrice();
         }
 
         ShippingAddressEntity shipping = new ShippingAddressEntity(name, mail, phone, address);
         int shippingId = shippingAddressDao.save(shipping);
 
         OrderEntity order = new OrderEntity(userLogin, orderItemList, shippingId, null, "unchecked", new Date());
+        order.setTotalMoney(totalMoney);
         orderDao.save(order);
     }
 }

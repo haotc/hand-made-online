@@ -5,6 +5,8 @@ import haotc.java.sample.common.CommonConstants;
 import haotc.java.sample.dao.CustomerLoginDao;
 import haotc.java.sample.entity.CustomerLoginEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +15,10 @@ import java.util.List;
 @Service("userLoginBo")
 @Transactional(readOnly = true)
 public class UserLoginBoImpl extends GenericBoImpl implements UserLoginBo {
+
+    @Autowired
+    private MailSender mailSender;
+
 
     @Autowired
     CustomerLoginDao customerLoginDao;
@@ -52,6 +58,16 @@ public class UserLoginBoImpl extends GenericBoImpl implements UserLoginBo {
         if (user == null) {
             user = new CustomerLoginEntity();
             user.setLogin(username);
+//            try {
+//                SimpleMailMessage message = new SimpleMailMessage();
+//                message.setTo(email);
+//                message.setSubject("Welcome");
+//                message.setText("Tên đăng nhập: " + username + " - mật khẩu: " + user.getPassword());
+//                mailSender.send(message);
+//                return true;
+//            } catch (Exception e) {
+//                return false;
+//            }
         }
         user.setEmail(email);
         user.setPassword(password);
@@ -63,13 +79,18 @@ public class UserLoginBoImpl extends GenericBoImpl implements UserLoginBo {
     @Override
     public boolean checkResetPassword(String username, String email, String roleCustomer) {
         CustomerLoginEntity user = customerLoginDao.findById(username);
-        if (user.getEmail().equals(email) && user.getRole().equals(CommonConstants.ROLE_CUSTOMER)) {
+        if (user != null && user.getEmail().equals(email) && user.getRole().equals(CommonConstants.ROLE_CUSTOMER)) {
             try {
-//                SimpleMailMessage msg = new SimpleMailMessage();
-            } catch (Exception e) {
+                SimpleMailMessage message = new SimpleMailMessage();
+                message.setTo(email);
+                message.setSubject("Reset password");
+                message.setText("Password của bạn là: " + user.getPassword());
+                mailSender.send(message);
                 return true;
+            } catch (Exception e) {
+                return false;
             }
-        };
+        }
         return false;
     }
 }

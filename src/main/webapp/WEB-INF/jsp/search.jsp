@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Lấy lại mật khẩu</title>
+    <title>Tìm kiếm</title>
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
     <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
@@ -24,25 +24,36 @@
         <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Lấy lại mật khẩu</div>
+                <div class="feature-text">Tìm kiếm</div>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
                 <div id="login-ct">
-                    <form action="reset-password" method="post">
+                    <form action="login" method="post">
                         <div class="text-field">
-                            <label>Tên đăng nhập</label>
-                            <input id="username" name="username" type="text"/>
+                            <label>Tên sản phẩm</label>
+                            <input name="productName" type="text"/>
                         </div>
                         <div class="text-field">
-                            <label>Email</label>
-                            <input id="email" name="email" type="text"/>
+                            <label>Giá từ</label>
+                            <select name="priceFrom">
+                                <option></option>
+                                <option value="0"></option>
+                                <option value="50000"></option>
+                                <option value="100000"></option>
+                                <option value="200000"></option>
+                            </select>
+                        </div>
+                        <div class="text-field">
+                            <select name="priceTo">
+                                <option></option>
+                                <option value="50000"></option>
+                                <option value="100000"></option>
+                                <option value="200000"></option>
+                            </select>
                         </div>
                         <div class="btn-fld">
-                            <c:if test="${resetFailed}">
-                                <span id="fail-msg">Đã xảy ra lỗi trong quá trình xác nhận</span>
-                            </c:if>
-                            <button id="login-button" type="submit">Hoàn tất »</button>
+                            <button type="submit">Tìm kiếm »</button>
                         </div>
                     </form>
                 </div>

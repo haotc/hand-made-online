@@ -21,6 +21,7 @@ public class OrderEntity {
     private Integer billingId;
     private Date createdDate;
     private String status;
+    private Integer totalMoney;
 
     public OrderEntity() {
     }
@@ -98,5 +99,14 @@ public class OrderEntity {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    @Column(name = "total_money")
+    public Integer getTotalMoney() {
+        return totalMoney;
+    }
+
+    public void setTotalMoney(Integer totalMoney) {
+        this.totalMoney = totalMoney;
     }
 }
