@@ -5,28 +5,28 @@ import javax.persistence.*;
 @Entity
 @Table(name = "product")
 public class ProductEntity {
-    private int id;
+    private Integer id;
     private String name;
     private String shortDesc;
     private String detailDesc;
-    private int unitPrice;
+    private Integer unitPrice;
     private double discount;
     private String imageUrl;
     private String imageDesc;
     private String status;
-    private int total;
-    private int quantity;
+    private Integer total;
+    private Integer quantity;
     private CategoryEntity category;
-    private int numberOfSold;
+    private Integer numberOfSold;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", unique = true, nullable = false)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -58,11 +58,11 @@ public class ProductEntity {
     }
 
     @Column(name = "unit_price")
-    public int getUnitPrice() {
+    public Integer getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(int unitPrice) {
+    public void setUnitPrice(Integer unitPrice) {
         this.unitPrice = unitPrice;
     }
 
@@ -113,29 +113,29 @@ public class ProductEntity {
     }
 
     @Column(name = "total")
-    public int getTotal() {
+    public Integer getTotal() {
         return total;
     }
 
-    public void setTotal(int total) {
+    public void setTotal(Integer total) {
         this.total = total;
     }
 
     @Column(name = "quantity")
-    public int getQuantity() {
+    public Integer getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(Integer quantity) {
         this.quantity = quantity;
     }
 
     @Column(name = "number_of_sold")
-    public int getNumberOfSold() {
+    public Integer getNumberOfSold() {
         return numberOfSold;
     }
 
-    public void setNumberOfSold(int numberOfSold) {
+    public void setNumberOfSold(Integer numberOfSold) {
         this.numberOfSold = numberOfSold;
     }
 }

@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Quản lí người dùng</title>
+    <title>Quản lí dòng sản phẩm</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/admin.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo.png" type="image/png">
@@ -21,9 +21,10 @@
 <div class="wrapper">
     <%@ include file="common/admin-navigator.jsp" %>
     <div class="content">
+        <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Quản lí nhóm hàng</div>
+                <div class="feature-text">Quản lí dòng sản phẩm</div>
                 <a href="new"><button>Tạo mới</button></a>
                 <div class="clear"></div>
             </div>

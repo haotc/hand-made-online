@@ -39,6 +39,7 @@ public class CategoryBoImpl extends GenericBoImpl implements CategoryBo {
     }
 
     @Override
+    @Transactional(readOnly = false)
     public void save(String name, String desc) {
         CategoryEntity cate = new CategoryEntity();
         cate.setName(name);

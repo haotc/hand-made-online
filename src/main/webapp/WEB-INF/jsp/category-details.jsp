@@ -21,6 +21,8 @@
 <div class="wrapper">
     <%@ include file="common/admin-navigator.jsp" %>
     <div class="content">
+        <%@ include file="common/top-area.jsp" %>
+        <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
                 <div class="feature-text">Thông tin dòng sản phẩm</div>

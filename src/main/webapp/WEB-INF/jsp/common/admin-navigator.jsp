@@ -14,7 +14,7 @@
             <div class="nav-list-content">
                 <div class="cate-item">
                     <div class="main-cate">
-                        <div class="cate-text selected"><a href="${pageContext.request.contextPath}/admin/user/list">Người
+                        <div class="cate-text href"><a href="${pageContext.request.contextPath}/admin/user/list">Người
                             dùng</a>
                         </div>
                     </div>

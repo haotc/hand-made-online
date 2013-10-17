@@ -58,4 +58,9 @@ public class ProductDaoImpl extends GenericDaoImpl<ProductEntity, Integer>
         crit.setFirstResult((page - 1) * pageSize);
         return crit.list();
     }
+
+    @Override
+    public List<ProductEntity> list() {
+        return getSession().createCriteria(ProductEntity.class).list();
+    }
 }

@@ -11,23 +11,24 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Đăng nhập</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/style.css">
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo.png" type="image/png">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/javascripts/jquery-1.10.2.js"></script>
+    <title>Reset mật khẩu thành công</title>
+    <link rel="stylesheet" href="../assets/stylesheets/style.css">
+    <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
+    <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="../assets/javascripts/navigation.js"></script>
 </head>
 <body>
 <div class="wrapper">
-    <%@ include file="common/admin-navigator.jsp" %>
+    <%@ include file="common/navigator.jsp" %>
     <div class="content">
         <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Trang quản lí</div>
+                <div class="feature-text">Reset mật khẩu thành công</div>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
-
+                <h2 align="center">Mật khẩu của bạn đã được reset thành công. Vui lòng kiểm tra lại hòm thư trong email.</h2>
             </div>
         </div>
     </div>

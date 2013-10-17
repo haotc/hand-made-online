@@ -8,4 +8,6 @@ public interface ProductDao extends GenericDao<ProductEntity, Integer> {
     List<ProductEntity> getProductList(int page, int pageSize, String categoryId);
 
     List<ProductEntity> getProductList(int page, int pageSize);
+
+    List<ProductEntity> list();
 }

@@ -461,7 +461,7 @@ a {
 
 .text-field input {
     padding: 8px;
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
     color: #222;
     background: #F7F7F7;
     outline: none;
@@ -472,6 +472,7 @@ a {
 }
 
 #login-ct {
+    margin-top: 20px;
     margin-left: 50px;
     width: 425px;
     /*margin: auto;*/
@@ -604,4 +605,81 @@ button {
 #input-form {
     margin-left: 50px;
     width: 765px;
+}
+
+.list-table {
+    margin: 25px;
+    border-collapse: collapse;
+    border: 1px solid #DCDCDC;
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: transparent;
+    width: 900px;
+    margin-bottom: 18px;
+}
+
+table tbody {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+.list-table th, td {
+    padding: 10px 15px;
+    border: 1px solid #DCDCDC;
+    vertical-align: middle;
+    font-size: 13px;
+}
+
+.list-table td .product-img {
+    display: inline-block;
+    float: left;
+    padding-top: 8px;
+}
+
+.list-table td a {
+    display: inline-block;
+    float: left;
+    padding-top: 8px;
+    text-decoration: underline;
+    font-size: 13px;
+    color: #0193dc;
+    margin-left: 5px;
+}
+
+.list-table td .icon-del {
+    background: url(../images/icon-order-del.png) top left no-repeat;
+    width: 17px;
+    height: 19px;
+    display: block;
+}
+
+.list-table td .price {
+    text-align: center;
+    font-size: 18px;
+    color: #F60;
+}
+
+.list-table td .price i {
+    font-size: 15px;
+    font-style: normal;
+    position: relative;
+    top: -11px;
+}
+
+textarea {
+    padding: 8px;
+    font-size: 1.2em;
+    color: #222;
+    background: #F7F7F7;
+    outline: none;
+    border-top: 1px solid #CCC;
+    border-left: 1px solid #CCC;
+    border-right: 1px solid #E7E6E6;
+    border-bottom: 1px solid #E7E6E6;
+    width: 300px;
+    resize: none;
 }

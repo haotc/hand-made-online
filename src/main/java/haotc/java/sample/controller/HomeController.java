@@ -69,6 +69,23 @@ public class HomeController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "reset-password", method = RequestMethod.GET)
+    public String resetPassword() {
+        return "reset-password";
+    }
+
+    @RequestMapping(value = "reset-password", method = RequestMethod.POST)
+    public String resetPassword(@RequestParam(required = true, value = "username") String username,
+                                @RequestParam(required = true, value = "email") String email,
+                                ModelMap model,
+                                HttpServletRequest request) {
+        if (userLoginBo.checkResetPassword(username, email, CommonConstants.ROLE_CUSTOMER)) {
+            return "reset-password-success";
+        }
+        model.addAttribute("resetFailed", true);
+        return "reset-password";
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String register(ModelMap model, HttpServletRequest request) {
         if (request.getSession().getAttribute("loginUser") == null) {

@@ -31,7 +31,7 @@
                 <div class="clear"></div>
             </div>
             <div id="item-container">
-                <form:form id="shipping-address-form" action="fill-shipping-address" method="post">
+                <form id="shipping-address-form" action="fill-shipping-address" method="post">
 
                     <div id="input-form">
                         <div class="text-field">
@@ -55,7 +55,7 @@
                             <button id="submit-button" type="submit">Hoàn tất »</button>
                         </div>
                     </div>
-                </form:form>
+                </form>
             </div>
         </div>
     </div>

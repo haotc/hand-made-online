@@ -16,4 +16,6 @@ public interface UserLoginBo extends GenericBo {
     boolean save(String username, String email, String password);
 
     boolean save(String username, String email, String password, String role);
+
+    boolean checkResetPassword(String username, String email, String roleCustomer);
 }

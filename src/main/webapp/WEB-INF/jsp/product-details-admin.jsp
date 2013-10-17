@@ -11,57 +11,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Thông tin người dùng</title>
+    <title>Thông tin sản phẩm</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/admin.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo.png" type="image/png">
-    <script type="text/javascript" src="${pageContext.request.contextPath}/assets/javascripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript"
+            src="${pageContext.request.contextPath}/assets/javascripts/jquery-1.10.2.js"></script>
 </head>
 <body>
 <div class="wrapper">
     <%@ include file="common/admin-navigator.jsp" %>
     <div class="content">
         <%@ include file="common/top-area.jsp" %>
+        <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Thông tin người dùng</div>
+                <div class="feature-text">Thông tin sản phẩm</div>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
                 <table class="list-table">
                     <tbody>
                     <tr>
-                        <td>Tên đăng nhập</td>
-                        <td>${user.login}</td>
+                        <td>Tên sản phẩm</td>
+                        <td>${product.name}</td>
                     </tr>
                     <tr>
-                        <td>Mật khẩu</td>
-                        <td>${user.password}</td>
+                        <td>Loại sản phẩm</td>
+                        <td>${product.category.description}</td>
                     </tr>
                     <tr>
-                        <td>Email</td>
-                        <td>${user.email}</td>
+                        <td>Hình minh họa</td>
+                        <td><img src="${product.imageUrl}"/></td>
                     </tr>
                     <tr>
-                        <td>Role</td>
-                        <td>${user.role}</td>
-                    </tr>
-                    <%--<tr>
-                        <td>Họ và tên</td>
-                        <td>${user.profile.firstName} ${user.profile.lastName}</td>
+                        <td>Mô tả ngắn gọn</td>
+                        <td>${product.shortDesc}</td>
                     </tr>
                     <tr>
-                        <td>Ngày sinh</td>
-                        <td>${user.profile.birthday}</td>
+                        <td>Mô tả chi tiết</td>
+                        <td>${product.detailDesc}</td>
                     </tr>
                     <tr>
-                        <td>Số điện thoại</td>
-                        <td>${user.profile.phone}</td>
-                    </tr>--%>
+                        <td>Số lượng đã bán</td>
+                        <td>${product.numberOfSold}</td>
+                    </tr>
+                    <tr>
+                        <td>Số lượng còn lại</td>
+                        <td>${product.quantity}</td>
+                    </tr>
                     <tr>
                         <td colspan="2" align="right">
-                            <a href="${pageContext.request.contextPath}/admin/user/${user.login}/edit"><button id="update-btn">Sửa</button></a>
-                            <a href="${pageContext.request.contextPath}/admin/user/delete?us=${user.login}"><button id="delete-btn">Xóa</button></a>
+                            <a href="${pageContext.request.contextPath}/admin/product/${product.id}/edit">
+                                <button id="update-btn">Sửa</button>
+                            </a>
+                            <a href="${pageContext.request.contextPath}/admin/product/delete?id=${product.id}">
+                                <button id="delete-btn">Xóa</button>
+                            </a>
                         </td>
                     </tr>
                     </tbody>

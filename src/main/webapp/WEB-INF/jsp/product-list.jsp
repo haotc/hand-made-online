@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Quản lí người dùng</title>
+    <title>Quản lí sản phẩm</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/style.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/stylesheets/admin.css">
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/assets/images/logo.png" type="image/png">
@@ -24,8 +24,8 @@
         <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Quản lí người dùng</div>
-                <a href="new"><button>Thêm người dùng</button></a>
+                <div class="feature-text">Quản lí sản phẩm</div>
+                <a href="new"><button>Tạo mới</button></a>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
@@ -33,21 +33,20 @@
                 <table class="list-table">
                     <tbody>
                     <tr>
-                        <th>Tên đăng nhập</th>
-                        <th>Mật khẩu</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>STT</th>
+                        <th>Tên sản phẩm</th>
+                        <th>Dòng sản phẩm</th>
+                        <th>Giá</th>
                         <th colspan="2">Thao tác</th>
                     </tr>
-
-                    <c:forEach var="user" items="${userList}">
+                    <c:forEach var="c" items="${productList}" varStatus="index">
                         <tr>
-                            <td><a href="${user.login}">${user.login}</a></td>
-                            <td>${user.password}</td>
-                            <td>${user.email}</td>
-                            <td>${user.role}</td>
-                            <td><a href="${user.login}/edit"><button>Sửa</button></a></td>
-                            <td><a href="delete?us=${user.login}"><button>Xóa</button></a></td>
+                            <td>${index.count}</td>
+                            <td><a href="${c.id}">${c.name}</a></td>
+                            <td>${c.category.name}</td>
+                            <td>${c.unitPrice}</td>
+                            <td><a href="${c.id}/edit"><button>Sửa</button></a></td>
+                            <td><a href="delete?id=${c.id}"><button>Xóa</button></a></td>
                         </tr>
                     </c:forEach>
                     </tbody>

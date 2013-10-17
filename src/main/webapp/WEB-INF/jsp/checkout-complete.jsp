@@ -28,8 +28,7 @@
                 <div class="feature-text">Mua hàng hoàn tất</div>
                 <div class="clear"></div>
             </div>
-            <h2 align="center" style="color: green">Cảm ơn quý khách đã mua hàng tại Handmade Online!</h2>
-            <h2 align="center" style="color: green">Click vào đây nếu quý khách muốn tiếp tục mua hàng.</h2>
+            <h2 align="center" style="color: #9acd32;">Cảm ơn quý khách đã mua hàng tại Handmade Online!</h2>
         </div>
     </div>
 </div>

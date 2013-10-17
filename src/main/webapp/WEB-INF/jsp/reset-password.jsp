@@ -11,7 +11,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Đăng nhập</title>
+    <title>Reset mật khẩu</title>
     <link rel="stylesheet" href="../assets/stylesheets/style.css">
     <link rel="shortcut icon" href="../assets/images/logo.png" type="image/png">
     <script type="text/javascript" src="../assets/javascripts/jquery-1.10.2.js"></script>
@@ -24,28 +24,27 @@
         <%@ include file="common/top-area.jsp" %>
         <div class="main-area">
             <div class="feature">
-                <div class="feature-text">Đăng nhập</div>
+                <div class="feature-text">Reset mật khẩu</div>
                 <div class="clear"></div>
             </div>
             <div id="item-container">
                 <div id="login-ct">
-                    <a href="reset-password" style="text-align: right;color: blue;font-size: 10px;">Bạn quên mật khẩu?</a>
-                    <form:form commandName="loginForm" action="login" method="post">
+                    <form action="reset-password" method="post">
                         <div class="text-field">
                             <label>Tên đăng nhập</label>
-                            <form:input path="username" id="username" name="username" type="text"/>
+                            <input id="username" name="username" type="text"/>
                         </div>
                         <div class="text-field">
-                            <label>Mật khẩu</label>
-                            <form:input path="password" id="password" name="password" type="password"/>
+                            <label>Email</label>
+                            <input id="email" name="email" type="password"/>
                         </div>
                         <div class="btn-fld">
-                            <c:if test="${loginFailed}">
-                                <span id="fail-msg">Tên đăng nhập hoặc mật khẩu không chính xác</span>
+                            <c:if test="${resetFailed}">
+                                <span id="fail-msg">Tên đăng nhập hoặc email không chính xác</span>
                             </c:if>
-                            <button id="login-button" type="submit">Đăng nhập »</button>
+                            <button id="login-button" type="submit">Hoàn tất »</button>
                         </div>
-                    </form:form>
+                    </form>
                 </div>
             </div>
         </div>

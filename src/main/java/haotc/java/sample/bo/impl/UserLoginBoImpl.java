@@ -59,4 +59,17 @@ public class UserLoginBoImpl extends GenericBoImpl implements UserLoginBo {
         customerLoginDao.save(user);
         return true;
     }
+
+    @Override
+    public boolean checkResetPassword(String username, String email, String roleCustomer) {
+        CustomerLoginEntity user = customerLoginDao.findById(username);
+        if (user.getEmail().equals(email) && user.getRole().equals(CommonConstants.ROLE_CUSTOMER)) {
+            try {
+//                SimpleMailMessage msg = new SimpleMailMessage();
+            } catch (Exception e) {
+                return true;
+            }
+        };
+        return false;
+    }
 }

@@ -3,6 +3,7 @@ package haotc.java.sample.bo;
 import java.util.List;
 
 import haotc.java.sample.entity.ProductEntity;
+import haotc.java.sample.model.ProductModel;
 
 public interface ProductBo extends GenericBo {
 	void update(ProductEntity product);
@@ -13,7 +14,11 @@ public interface ProductBo extends GenericBo {
 
 	void deleteById(int id);
 
-	void create(ProductEntity product);
-
 	int getRowCount();
+
+    List<ProductEntity> list();
+
+    void removeById(Integer id);
+
+    void save(ProductModel product);
 }

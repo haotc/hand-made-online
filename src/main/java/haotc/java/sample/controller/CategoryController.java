@@ -72,7 +72,7 @@ public class CategoryController {
                          @RequestParam(required = true, value = "desc") String desc) {
         try {
             categoryBo.save(name, desc);
-            return "redirect:category/list";
+            return "redirect:list";
         } catch (Exception e) {
             return "error";
         }

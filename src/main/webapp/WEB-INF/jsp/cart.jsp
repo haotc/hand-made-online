@@ -41,7 +41,7 @@
                             <center><h2>Bạn chưa có sản phẩm nào trong giỏ hàng.</h2></center>
                         </c:when>
                         <c:otherwise>
-                            <table class="tbl-cart">
+                            <table class="list-table">
                                 <tbody>
                                 <tr>
                                     <th width="5%">STT</th>
